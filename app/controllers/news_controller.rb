@@ -5,7 +5,7 @@ class NewsController < ApplicationController
   # GET /news
   # GET /news.json
   def index
-    @news = News.all
+    @news = News.order(published_at: :desc).limit(20)
   end
 
   # GET /news/1

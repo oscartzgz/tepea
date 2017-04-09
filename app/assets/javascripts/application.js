@@ -15,3 +15,12 @@
 //= require turbolinks
 //= require materialize-sprockets
 //= require_tree .
+
+
+$( document ).on('turbolinks:load', function() {
+   $(".button-collapse").sideNav();
+   $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 3 // Creates a dropdown of 15 years to control year
+  });
+})

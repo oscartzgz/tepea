@@ -4,6 +4,7 @@ class User < ApplicationRecord
     user.update(
       name: auth_hash.info.name,
       email: auth_hash.info.email,
+      image_url: auth_hash.info.image,
       oauth_token: auth_hash.credentials.token,
       oauth_expires_at: auth_hash.credentials.expires_at
     )

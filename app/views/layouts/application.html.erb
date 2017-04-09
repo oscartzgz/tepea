@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TepeapulCo</title>
+    <title>Tepeapulco, Hidalgo, Mexico.</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -10,10 +10,42 @@
 
   <body>
 
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo">Tepeapulco</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="sass.html">Sass</a></li>
+          <li><a href="badges.html">Components</a></li>
+          <li><a href="collapsible.html">Javascript</a></li>
+          <li><a href="mobile.html">Mobile</a></li>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+          <li>
+            <div class="center-align valign-wrapper">
+              <img id="user_image_mobile_nav" src="<%= current_user.image_url %>" alt="avatar-mobile">
+              <strong class="valign"><%= current_user.name %></strong>
+            </div>
+          </li>
+          <hr>
+          <li></li>
+          <li><a href="#">Discuciones</a></li>
+          <li><a href="#">Turismo</a></li>
+          <li><%= link_to "Cerrar Sesion", signout_path %></li>
+        </ul>
+      </div>
+    </nav>
+
     <div id="user_nav">
       <% if current_user %>
-        Signed in as <strong><%= current_user.name %></strong>!
-        <%= link_to "Salir", signout_path, id: "sign_out" %>
+        <div class="hide-on-small-only">
+          Signed in as <strong><%= current_user.name %></strong>!
+          <%= link_to "Salir", signout_path, id: "sign_out" %>
+        </div>
+        <div class="hide-on-med-and-up">
+          <img id="user_image" src="<%= current_user.image_url %>" alt="avatar">
+          <%= link_to "Salir", signout_path, id: "sign_out" %>
+        </div>
       <% else %>
         <%= link_to "Entrar con facebook", "/auth/facebook", id: "sign_in" %>
       <% end %>
