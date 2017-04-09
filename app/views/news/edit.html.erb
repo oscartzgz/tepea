@@ -1,6 +1,10 @@
 <h1>Editing News</h1>
 
-<%= render 'form', news: @news %>
+<% if current_user %>
+  <%= render 'form', news: @news %>
+<% else %>
+  <h4>Oh! lo siento no puedes crear hasta estar registrado</h4>
+<% end %>
 
 <%= link_to 'Show', @news %> |
 <%= link_to 'Back', news_index_path %>

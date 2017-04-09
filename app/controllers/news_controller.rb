@@ -1,5 +1,6 @@
 class NewsController < ApplicationController
   before_action :set_news, only: [:show, :edit, :update, :destroy]
+  before_action :user_logued_in, only: [:edit]
 
   # GET /news
   # GET /news.json
