@@ -7,13 +7,9 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def user_logued_in
-    if current_user
-      user_logued_in = true
-    else
-      user_logued_in = false
-      respond_to do |format|
-        format.html { redirect_to @news, notice: 'Hooo Ohhhhhh!' }
-      end
+    unless current_user
+        flash[:before_login] = 'Para realizar esta acción, inicia sesion con facebook'
+        redirect_to :back
     end
   end
 end

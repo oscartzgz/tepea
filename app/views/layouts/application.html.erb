@@ -19,6 +19,18 @@
       <% end %>
     </div>
 
+    <div class="flashmessage">
+      <% if flash[:notice] %>
+        <div class="notice"><%= flash[:notice] %></div>
+      <% elsif flash[:alert] %>
+        <div class="alert"><%= flash[:alert] %></div>
+      <% elsif flash[:error] %>
+        <div class="error"><%= flash[:error] %></div>
+      <% elsif flash[:before_login] %>
+        <div class="before_login"><%= flash[:before_login] %></div>
+      <% end %>
+    </div>
+
     <%= yield %>
   </body>
 </html>
