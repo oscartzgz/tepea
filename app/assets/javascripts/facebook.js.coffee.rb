@@ -1,4 +1,4 @@
-window.fbAsyncInit = ->
+window.fbAsyncInit ->
   FB.init
     appId: '1910729312536307'
     cookie: true
