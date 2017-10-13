@@ -23,15 +23,15 @@
         <ul class="side-nav" id="mobile-demo">
           <li>
             <div class="center-align valign-wrapper">
-              <img id="user_image_mobile_nav" src="<%= current_user.image_url %>" alt="avatar-mobile">
-              <strong class="valign"><%= current_user.name %></strong>
+              <img id="user_image_mobile_nav" src="<%# current_user.image_url %>" alt="avatar-mobile">
+              <strong class="valign"><%# current_user.name %>????</strong>
             </div>
           </li>
           <hr>
           <li></li>
           <li><a href="#">Discuciones</a></li>
           <li><a href="#">Turismo</a></li>
-          <li><%= link_to "Cerrar Sesion", signout_path %></li>
+          <li><%= link_to "Cerrar Sesion", 'signout_path' %></li>
         </ul>
       </div>
     </nav>

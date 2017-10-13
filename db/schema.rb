@@ -15,28 +15,28 @@ ActiveRecord::Schema.define(version: 20170409052900) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "news", force: :cascade do |t|
-    t.string   "title"
-    t.string   "description"
-    t.string   "image"
-    t.string   "url"
-    t.date     "published_at"
-    t.string   "editor"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+  create_table "news", id: :serial, force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.string "image"
+    t.string "url"
+    t.date "published_at"
+    t.string "editor"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string   "provider"
-    t.string   "uid"
-    t.string   "name"
-    t.string   "oauth_token"
+  create_table "users", id: :serial, force: :cascade do |t|
+    t.string "provider"
+    t.string "uid"
+    t.string "name"
+    t.string "oauth_token"
     t.datetime "oauth_expires_at"
-    t.string   "email"
-    t.string   "image_url"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
-    t.boolean  "admin",            default: false
+    t.string "email"
+    t.string "image_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "admin", default: false
   end
 
 end
