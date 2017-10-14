@@ -50,3 +50,20 @@
     font-weight: 900;
   }
 }
+
+.nav-wrapper{
+  .brand-logo{
+    font-weight: 300;
+    line-height: 64px;
+    img{
+      margin-top: 12px;
+      height: 40px;
+      line-height: 64px;
+    }
+  }
+}
+
+.title-description{
+  font-weight: 100;
+  font-size: 2em;
+}
