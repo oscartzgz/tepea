@@ -51,6 +51,24 @@
   }
 }
 
+.main-credits{
+  font-size: .9em;
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
+
+  a{
+    font-size: 1.2em;
+  }
+
+  span{
+    background: #EDEDED;
+    padding-left: .2em;
+    padding-right: .2em;
+    border-radius: .15em;
+  }
+}
+
 .nav-wrapper{
   .brand-logo{
     font-weight: 300;
