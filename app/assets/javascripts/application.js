@@ -18,9 +18,33 @@
 
 
 $( document ).on('turbolinks:load', function() {
-   $(".button-collapse").sideNav();
-   $('.datepicker').pickadate({
+  $(".button-collapse").sideNav();
+  $('.datepicker').pickadate({
     selectMonths: true, // Creates a dropdown to control month
     selectYears: 3 // Creates a dropdown of 15 years to control year
   });
+
+  // Materialize Initializers
+
+  // Responsive Menu
+   $(".button-collapse").sideNav();
+
+  // Dragabble menu
+  // $('.button-collapse').sideNav({
+  //     menuWidth: 300, // Default is 300
+  //     edge: 'left', // Choose the horizontal origin
+  //     closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+  //     draggable: true, // Choose whether you can drag to open on touch screens,
+  //     onOpen: function(el) { /* Do Stuff */ }, // A function to be called when sideNav is opened
+  //     onClose: function(el) { /* Do Stuff */ }, // A function to be called when sideNav is closed
+  //   }
+  // );
+
+  // Show sideNav
+  // $('.button-collapse').sideNav('show');
+  // Hide sideNav
+  // $('.button-collapse').sideNav('hide');
+  // Destroy sideNav
+  // $('.button-collapse').sideNav('destroy');
+
 })
