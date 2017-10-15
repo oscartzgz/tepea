@@ -23,4 +23,15 @@ $( document ).on('turbolinks:load', function() {
     selectMonths: true, // Creates a dropdown to control month
     selectYears: 3 // Creates a dropdown of 15 years to control year
   });
-})
+
+  $('#mapShow').click(function(){
+    $('#map').show("fast", initMap);
+    $('#mapClose').show("fast");
+  });
+
+  $("mapClose").click(function(event){
+    event.preventDefault();
+    $('#map').hide("low");
+    $(self).hide("low");
+  });
+});

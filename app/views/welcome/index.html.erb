@@ -19,4 +19,28 @@
       </a>
     </strong>
   </div>
+
+  <div class="general-info">
+    <i id="mapShow" class="location material-icons">location_on</i>
+  </div>
+  <div id="map"></div>
+            
 </div>
+
+
+<script>
+  function initMap() {
+    var coords = {lat: 19.785, lng: -98.557};
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 13,
+      center: coords
+    });
+    var marker = new google.maps.Marker({
+      position: coords,
+      map: map
+    });
+  }
+</script>
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=<%= @maps_api_key %>&callback=initMap">
+</script>
