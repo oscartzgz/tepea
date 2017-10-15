@@ -12,7 +12,7 @@
 
     <nav>
       <div class="nav-wrapper cyan">
-        <a href="<%= root_url %>" class="brand-logo center"><i><%= image_tag 'escudo_tepeapulco_logo.png', class: 'material-icons' %></i> Tepeapulco</a>
+        <a href="<%= root_url %>" class="brand-logo center"><i><%= image_tag 'escudo_tepeapulco_logo.png', class: 'material-icons hide-on-small-only' %></i> Tepeapulco</a>
         <%# link_to :Tepea, root_url, class: 'brand-logo' %>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
@@ -25,16 +25,10 @@
           </li>
         </ul>
         <ul class="side-nav" id="mobile-demo">
-          <li>
-            <div class="center-align valign-wrapper">
-              <img id="user_image_mobile_nav" src="<%# current_user.image_url %>" alt="avatar-mobile">
-              <strong class="valign"><%# current_user.name %>????</strong>
-            </div>
-          </li>
-          <hr>
-          <li></li>
-          <li><a href="#">Discuciones</a></li>
-          <li><a href="#">Turismo</a></li>
+          <li><a href="#">Noticias</a></li>
+          <li><a href="#">Fotos</a></li>
+          <li><a href="#">Lugares</a></li>
+          <li><a href="#">Xihuingo</a></li>
           <li><%= link_to "Cerrar Sesion", 'signout_path' %></li>
         </ul>
       </div>

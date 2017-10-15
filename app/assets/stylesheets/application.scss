@@ -115,3 +115,10 @@
   font-weight: 100;
   font-size: 2em;
 }
+
+
+@media only screen and (max-width: 600px){
+  .main-page-image{
+    max-height: 14em;
+  }
+}

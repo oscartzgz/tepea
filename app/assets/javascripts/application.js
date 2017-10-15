@@ -18,8 +18,8 @@
 
 
 $( document ).on('turbolinks:load', function() {
-   $(".button-collapse").sideNav();
-   $('.datepicker').pickadate({
+  $(".button-collapse").sideNav();
+  $('.datepicker').pickadate({
     selectMonths: true, // Creates a dropdown to control month
     selectYears: 3 // Creates a dropdown of 15 years to control year
   });
@@ -34,4 +34,9 @@ $( document ).on('turbolinks:load', function() {
     $('#map').hide("low");
     $(self).hide("low");
   });
+
+  // Materialize Initializers
+
+  // Responsive Menu
+   $(".button-collapse").sideNav();
 });
