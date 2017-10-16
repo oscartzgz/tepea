@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   get 'welcome/index'
   root 'welcome#index'
   resources :news
-  resources :users
   devise_for :users
+  resources :users
 end
