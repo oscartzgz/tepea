@@ -1,35 +1,47 @@
 <div class="row valign-wrapper">
   <div class="col s9">
-    <h1>News for Tepeapulco <small class="hide-on-small-only">Apan, Zempoala, Emiliano Zapata...</small></h1>
+    <h2>Noticias <%= link_to '<i class="medium material-icons">fiber_new</i>'.html_safe, new_news_path if user_signed_in? and current_user.admin%></h2>
   </div>
   <div class="col s3 valign">
-    <%= link_to '<i class="medium material-icons">fiber_new</i>'.html_safe, new_news_path %>
+    
   </div>
 </div>
 <section>
   <div class="row">
-    <% @news.each do |news| %>
+    <% @news.each do |new| %>
       <article class="news-item">
-          <div class="col s12 m6 l4">
-            <div class="card blue-grey darken-1">
-              <div class="card-content white-text">
-                <h2 class="card-title"><%= news.title %></h2>
-                <cite><%= news.editor %></cite> -
-                <time><%= news.published_at %></time>
-                <p><%= news.description %></p>
-              </div>
-              <div class="card-action right-align">
-                <a target="_blank" href="<%= news.url %>">Ver la Nota Completa</a>
-                <% if current_user && current_user.admin %>
-                  <div class="admin_actions">
-                    <%= link_to '<i class="material-icons">remove_red_eye</i>'.html_safe, news %>
-                    <%= link_to '<i class="material-icons">mode_edit</i>'.html_safe, edit_news_path(news) %>
-                    <%= link_to '<i class="material-icons">delete_forever</i>'.html_safe, news, method: :delete, data: { confirm: 'Are you sure?' } %>
+          
+        <div class="col s12 m7 l4">
+          <!-- <h3 class="header">Horizontal Card</h3> -->
+          <div class="card horizontal">
+            <div class="card-image">
+              <% unless new.image.blank? or new.image.nil? %>
+                <%= image_tag new.image %>
+              <% else %>
+                <div class="news-no-image"><span>Sin <br>Imágen</span></div>
+              <% end %>
+            </div>
+            <div class="card-stacked">
+              <div class="card-content">
+                <h3 class="card-title"><%= new.title %></h3>
+                <p><%= new.description %></p>
+                <div class="row info-and-action">
+                  <div class="col l12">
+                    <span class="info-editor left">
+                      <%= new.editor %>
+                      <br>
+                      <%= new.published_at || new.created_at %>
+                    </span>
+                    <a class="waves-effect waves-light btn right"><i class="material-icons right">remove_red_eye</i>Ver</a>
                   </div>
-                <% end %>
+                </div>
               </div>
+             <!--  <div class="card-action">
+              </div> -->
             </div>
           </div>
+        </div>
+                  
       </article>
     <% end %>
   </div>

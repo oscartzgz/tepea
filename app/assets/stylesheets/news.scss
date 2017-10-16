@@ -3,15 +3,66 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .card{
-  h2.card-title{
+  h2.card-title, h3.card-title{
+    font-weight: 600;
     margin: 0 !important;
     text-transform: uppercase;
   }
+
   cite{
     display: inline-block;
     margin-bottom: .5em;
   }
+
+  img{
+    height: 100%;
+    width: 150px !important;
+    object-fit: cover;
+  }
+
+  p{
+    margin-bottom: 1em !important;
+  }
+
   .admin-actions{
     color: green;
+  }
+
+  .info-and-action{
+    margin-bottom: 0;
+    
+    .col{
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .info-editor{
+      color: #819196;
+    }
+  }
+
+  .news-no-image{
+    color: white;
+    background-image: image-url("tepeapulco-piramide.jpg");
+    background-position: center;
+    background-size: cover;
+    background-color: red;
+    height: 100%;
+    position: relative;
+    text-align: center;
+    filter: opacity(90%);
+    // filter: contrast(100%);
+    width: 150px;
+
+    span{
+      font-weight: 300;
+      font-size: 1.7em;
+      text-shadow: 0 0 3px black;
+      bottom: 1.7em;
+      left: 0;
+      position: absolute;
+      text-align: center;
+      right: 0;
+    }
   }
 }

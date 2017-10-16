@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   def user_logued_in
     unless current_user
         flash[:before_login] = 'Para realizar esta acción, inicia sesion con facebook'
-        redirect_to :back
+        redirect_back fallback_location: root_path
     end
   end
 end
