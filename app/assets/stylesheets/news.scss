@@ -2,6 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+h3 a:hover{
+  border-radius: .25em;
+  background: #C7DFEC;
+}
+
 .card{
   h2.card-title, h3.card-title{
     font-weight: 600;
@@ -35,10 +40,6 @@
       padding-left: 0;
       padding-right: 0;
     }
-
-    .info-editor{
-      color: #819196;
-    }
   }
 
   .news-no-image{
@@ -71,7 +72,7 @@
 @media only screen and (max-width: 600px){
   .card{
     img, .news-no-image{
-      width: 100px !important;
+      width: 90px !important;
     }
   }
 }

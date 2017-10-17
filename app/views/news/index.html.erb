@@ -12,7 +12,9 @@
       <article class="news-item">
           
         <div class="col s12 m6 l4">
-          <h3 class="header hide-on-med-and-up"><%= new.title %></h3>
+          <h3 class="header hide-on-med-and-up">
+            <a href="<%= new.url %>" class="blue-grey-text text-darken-3" ><%= new.title %></a>
+          </h3>
           <div class="card horizontal">
             <div class="card-image">
               <% unless new.image.blank? or new.image.nil? %>
@@ -23,21 +25,27 @@
             </div>
             <div class="card-stacked">
               <div class="card-content">
-                <h3 class="card-title hide-on-small-only"><%= new.title %></h3>
-                <p><%= new.description %></p>
+                <h3 class="card-title hide-on-small-only">
+                  <a href="<%= new.url %>" class="blue-grey-text text-darken-3" ><%= new.title %></a>
+                </h3>
+                <p><%= new.description.truncate(160) %></p>
                 <div class="row info-and-action">
                   <div class="col s12 m12 l12">
-                    <span class="info-editor left">
-                      <%= new.editor %>
-                      <br>
-                      <%= new.published_at || new.created_at %>
+                    <span class="left blue-grey-text text-lighten-3">
+                      <%= new.editor %>                
                     </span>
-                    <a href="<%= new.url %>" target="_blank" class="waves-effect waves-light btn right"><i class="material-icons right">remove_red_eye</i>Ver</a>
+                    <time class="right blue-grey-text text-lighten-3 hide-on-small-only"><%= new.published_at || new.created_at %></time>
                   </div>
                 </div>
               </div>
-             <!--  <div class="card-action">
-              </div> -->
+              <% if user_signed_in? %>
+                <% if current_user.admin %>
+                  <div class="card-action">
+                    <%= link_to 'Editar', edit_news_path(new) %>
+                    <%= link_to 'Eliminar', news_path(new), method: :delete, data: { confirm: '¿Estas seguro?' } %>
+                  </div>
+                <% end %>
+              <% end %>
             </div>
           </div>
         </div>
