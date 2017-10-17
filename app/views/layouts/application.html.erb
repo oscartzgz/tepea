@@ -33,21 +33,6 @@
       </div>
     </nav>
 
-    <div id="user_nav">
-      <% if current_user %>
-        <div class="hide-on-small-only">
-          Signed in as <strong><%= current_user.name %></strong>!
-          <%= link_to "Salir", signout_path, id: "sign_out" %>
-        </div>
-        <div class="hide-on-med-and-up">
-          <img id="user_image" src="<%= current_user.image_url %>" alt="avatar">
-          <%= link_to "Salir", signout_path, id: "sign_out" %>
-        </div>
-      <% else %>
-        <%# link_to "Entrar con facebook", "/auth/facebook", id: "sign_in" %>
-      <% end %>
-    </div>
-
     <div class="flashmessage">
       <% if flash[:notice] %>
         <div class="notice"><%= flash[:notice] %></div>
