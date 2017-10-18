@@ -60,3 +60,5 @@ gem 'devise'
 gem 'omniauth-facebook'
 
 gem 'materialize-sass'
+
+gem 'shrine'
