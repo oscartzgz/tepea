@@ -12,36 +12,32 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :title %>
+    <%= form.label :title, 'Nombre' %>
     <%= form.text_field :title, id: :event_title %>
   </div>
 
   <div class="field">
-    <%= form.label :address %>
+    <%= form.label :address, 'Dirección' %>
     <%= form.text_field :address, id: :event_address %>
   </div>
 
   <div class="field">
-    <%= form.label :date %>
-    <%= form.date_select :date, id: :event_date %>
+    <%= form.label :date, 'Fecha' %>
+    <%= form.text_field :date, id: :event_date, class: "datepicker" %>
   </div>
 
   <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, id: :event_description %>
+    <%= form.label :description, 'Detalles' %>
+    <%= form.text_area :description, id: :event_description, class: 'materialize-textarea' %>
   </div>
 
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id, id: :event_user_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :image_data %>
-    <%= form.text_area :image_data, id: :event_image_data %>
+    <%= form.label :image_data, 'Imagen' %>
+    <%= f.hidden_field :image, value: @event.cached_image_data if @event.cached_image_data %>
+    <%= form.file_field :image, id: :event_image_data %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'btn' %>
   </div>
 <% end %>

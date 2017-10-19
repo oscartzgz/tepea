@@ -1,3 +1,23 @@
 // Place all the styles related to the Events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.card-event{
+  .card-info{
+    color: grey;
+    padding-right: 1em;
+  }
+
+
+  .card-content{
+    padding-top: .5em !important;
+
+    address{
+      margin-top: -.25em;
+      font-size: .9em;
+    }
+    p{
+      margin-top: .4em !important;
+    }
+  }
+}

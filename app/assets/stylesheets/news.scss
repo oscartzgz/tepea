@@ -7,7 +7,7 @@ h3 a:hover{
   background: #C7DFEC;
 }
 
-.card{
+.card.card-news{
   h2.card-title, h3.card-title{
     font-weight: 600;
     margin: 0 !important;
@@ -70,7 +70,7 @@ h3 a:hover{
 
 
 @media only screen and (max-width: 600px){
-  .card{
+  .card.card-news{
     img, .news-no-image{
       width: 90px !important;
     }

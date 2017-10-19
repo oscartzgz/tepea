@@ -1,9 +1,59 @@
 <div class="row valign-wrapper">
-  <div class="col s9">
-    <h2>Noticias <%= link_to '<i class="medium material-icons">fiber_new</i>'.html_safe, new_news_path if user_signed_in? and current_user.admin%></h2>
+   <div class="col s12">
+    <h2>Eventos <%= link_to '<i class="medium material-icons">fiber_new</i>'.html_safe, new_event_path if user_signed_in? and current_user.admin%></h2>
   </div>
-  <div class="col s3 valign">
+</div>
+
+
+<section>
+  <div class="row">
+    <% @events.each do |event| %>
+      <div class="col s12 m6 l3">
+        <div class="card small card-event">
+          <div class="card-image">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/1/1f/Soda_bubbles_macro.jpg">
+            <span class="card-title"><%= event.title %></span>
+          </div>
+          <div class="card-content">
+
+            <div class="card-info">
+              <span>
+                <% if event.date == Date.today %>
+                  <%= 'HOY' %>
+                <% else  %>
+                  <% if (event.date - Date.today).to_i == 1  %>
+                    <%= 'FALTA 1 DÍA' %>  
+                  <% else %>
+                    <%= 'FALTAN ' + (event.date - Date.today).to_i.to_s + ' DÍAS'%>  
+                  <% end %>
+                <% end %>
+              </span>
+              <address><%= event.address %></address>
+            </div>
+
+            <p><%= event.description.truncate(80) %></p>
+
+          </div>
+          <% if user_signed_in? and current_user.admin %>
+            <div class="card-action">
+              <a href="#">This is a link</a>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
     
+    <div class="col s12 m12 l12 center">
+      <%= link_to 'Ver todos los eventos', events_path, class: 'btn btn-large' %>
+    </div>
+  </div>
+</section>
+
+
+
+<div class="row valign-wrapper">
+  <div class="col s12">
+    <h2>Noticias <%= link_to '<i class="medium material-icons">fiber_new</i>'.html_safe, new_news_path if user_signed_in? and current_user.admin%></h2>
   </div>
 </div>
 <section>
@@ -15,7 +65,7 @@
           <h3 class="header hide-on-med-and-up">
             <a href="<%= new.url %>" target="_blank" class="blue-grey-text text-darken-3" ><%= new.title %></a>
           </h3>
-          <div class="card horizontal">
+          <div class="card horizontal card-news">
             <div class="card-image">
               <% unless new.image.blank? or new.image.nil? %>
                 <%= image_tag new.image %>
@@ -52,5 +102,9 @@
                   
       </article>
     <% end %>
+
+    <div class="col s12 m12 l12 center">
+      <%= link_to 'Ver todas las noticias', news_index_path, class: 'btn btn-large' %>
+    </div>
   </div>
 </section>

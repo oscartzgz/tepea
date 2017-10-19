@@ -14,10 +14,11 @@ div {
   color: green;
 }
 
-.field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table;
+.field_with_errors + .field_with_errors{
+  input{
+    border: 2px solid #E26A6A !important;
+    border-radius: .4em !important;
+  }
 }
 
 #error_explanation {
