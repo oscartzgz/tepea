@@ -1,3 +1,22 @@
 // Place all the styles related to the Photos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.photo-card{
+
+  margin-bottom: 3em !important;
+
+  .chip{
+    box-shadow: 0 0 7px #2E2E2E;
+    position: absolute;
+    top: .7em;
+    left: .8em;
+    img{
+      border-radius: 1em !important;
+      object-fit: cover;
+      width: 32px !important;
+    }
+  }
+
+}
