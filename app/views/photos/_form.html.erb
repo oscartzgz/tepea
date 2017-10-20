@@ -12,18 +12,17 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :photo_data %>
-    <%= form.text_area :photo_data, id: :photo_photo_data %>
+    <%= form.label :photo, 'Foto' %>
+    <% if @photo.photo.present? %>
+      <%= image_tag event.photo_url, width: '100%' %>
+    <% end %>
+    <%= form.hidden_field :photo, value: form.object.cached_photo_data %>
+    <%= form.file_field :photo %>
   </div>
 
   <div class="field">
     <%= form.label :description %>
     <%= form.text_area :description, id: :photo_description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id, id: :photo_user_id %>
   </div>
 
   <div class="actions">

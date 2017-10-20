@@ -14,7 +14,7 @@ class PhotosController < ApplicationController
 
   # GET /photos/new
   def new
-    @photo = Photo.new
+    @photo = current_user.photos.build
   end
 
   # GET /photos/1/edit
@@ -24,7 +24,7 @@ class PhotosController < ApplicationController
   # POST /photos
   # POST /photos.json
   def create
-    @photo = Photo.new(photo_params)
+    @photo = current_user.photos.build(photo_params)
 
     respond_to do |format|
       if @photo.save
@@ -69,6 +69,6 @@ class PhotosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def photo_params
-      params.require(:photo).permit(:photo_data, :description, :user_id)
+      params.require(:photo).permit(:photo, :description)
     end
 end
