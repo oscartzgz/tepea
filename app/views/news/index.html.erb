@@ -11,8 +11,12 @@
       <div class="col s12 m6 l3">
         <div class="card small card-event">
           <div class="card-image">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/1/1f/Soda_bubbles_macro.jpg">
-            <span class="card-title"><%= event.title %></span>
+            <a href="<%= event_path(event) %>">
+              <%= image_tag (event.image_url || 'tepeapulco-piramide.jpg') %>
+            </a>
+            <a href="<%= event_path(event) %>">
+              <span class="card-title"><%= event.title %></span>
+            </a>
           </div>
           <div class="card-content">
 
