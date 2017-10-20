@@ -7,7 +7,7 @@ class NewsController < ApplicationController
   # GET /news.json
   def index
     @news = News.order(published_at: :desc).limit(20)
-    @events = Event.where('date >= ?', Date.today).order(date: :asc)
+    @events = Event.where('date >= ?', Date.today).order(date: :asc).limit(4)
   end
 
   # GET /news/1

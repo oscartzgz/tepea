@@ -26,15 +26,18 @@
     <%= form.text_field :date, id: :event_date, class: "datepicker" %>
   </div>
 
-  <div class="field">
+  <div class="field>"
     <%= form.label :description, 'Detalles' %>
     <%= form.text_area :description, id: :event_description, class: 'materialize-textarea' %>
   </div>
 
   <div class="field">
-    <%= form.label :image_data, 'Imagen' %>
-    <%= f.hidden_field :image, value: @event.cached_image_data if @event.cached_image_data %>
-    <%= form.file_field :image, id: :event_image_data %>
+    <%= form.label :image, 'Imagen' %>
+    <% if @event.image.present? %>
+      <%= image_tag event.image_url, width: '100%' %>
+    <% end %>
+    <%= form.hidden_field :image, value: form.object.cached_image_data %>
+    <%= form.file_field :image %>
   </div>
 
   <div class="actions">
