@@ -1,10 +1,11 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
 
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all.order(date: :asc)
+    @events = Event.where('date >= ?', Date.today).order(date: :asc)
   end
 
   # GET /events/1
