@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :photos
+  resources :photos, path: 'fotos'
   resources :events, path: 'eventos'
   resources :news, path: 'noticias'
   devise_for :users
