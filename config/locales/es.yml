@@ -1,0 +1,6 @@
+es:
+  datetime:
+    distance_in_words:
+      x_days:
+        one: "1 día"
+        other: "%{count} dias"
