@@ -55,12 +55,17 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+# For users login system
 gem 'devise'
 
 gem 'omniauth-facebook'
 
 gem 'materialize-sass'
-
+# Used to upload images
 gem 'shrine'
+# For Shrine to process images
+gem 'image_processing'
+# For Shrine to process images
+gem 'mini_magick'
 
 gem 'rails-i18n'
