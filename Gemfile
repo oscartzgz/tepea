@@ -67,5 +67,7 @@ gem 'shrine'
 gem 'image_processing'
 # For Shrine to process images
 gem 'mini_magick'
+# S3 uploads
+gem 'aws-sdk-s3'
 
 gem 'rails-i18n'
