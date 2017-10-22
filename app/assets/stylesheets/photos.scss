@@ -2,10 +2,20 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#btn-new-photo{
+  position: fixed;
+  margin-bottom: 1em;
+  right: 1.6em;
+  bottom: 1em;
+}
+
+.photos-container{
+}
 
 .photo-card{
 
   margin-bottom: 3em !important;
+  // max-width: 600px;
 
   .chip{
     box-shadow: 0 0 7px #2E2E2E;
@@ -18,5 +28,4 @@
       width: 32px !important;
     }
   }
-
 }

@@ -12,20 +12,24 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :photo, 'Foto' %>
-    <% if @photo.photo.present? %>
-      <%= image_tag event.photo_url, width: '100%' %>
+    <% unless action_name == 'edit' %>
+      <%= form.label :photo, 'Foto' %>
+      <% if @photo.photo.present? %>
+        <%= image_tag photo.photo_url, width: '100%' %>
+      <% end %>
+      <%= form.hidden_field :photo, value: form.object.cached_photo_data %>
+      <%= form.file_field :photo %>
+    <% else %>
+      <%= image_tag photo.photo_url, width: '100%' %>
     <% end %>
-    <%= form.hidden_field :photo, value: form.object.cached_photo_data %>
-    <%= form.file_field :photo %>
   </div>
 
   <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, id: :photo_description %>
+    <%= form.label :description, 'Descripción' %>
+    <%= form.text_area :description, id: :photo_description, class: 'materialize-textarea' %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'btn' %>
   </div>
 <% end %>

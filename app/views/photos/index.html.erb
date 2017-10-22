@@ -1,33 +1,35 @@
 <div class="row">
   <div class="col l6 offset-l3">
-    <h1>Fotos</h1>
+    <h1 class="center-align">Fotos</h1>
   </div>
 </div>
 
-  <div class="row">
-    <% @photos.each do |photo| %>
+<div class="row">
+  <% @photos.each do |photo| %>
 
-        <div class="col s12 m8 l6 offset-m2 offset-l3">
-          <div class="card photo-card">
-            <div class="card-image">
-              <%= image_tag photo.photo_url %>
-               <div class="chip grey lighten-5">
-                  <img src="https://scontent.fmex10-1.fna.fbcdn.net/v/t1.0-1/p240x240/22491658_1642504609147592_6478111018740175332_n.jpg?oh=e059f84808c75249925545a13e92f78b&oe=5A7C00CC" alt="Contact Person">
-                  Pedro Cruz
-                </div>
-              <!-- <span class="card-title">Card Title</span> -->
-              <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">favorite_border</i></a>
-            </div>
-            <div class="card-content">
-              <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-            </div>
+      <div class="col s12 m8 l6 xl6 offset-m2 offset-l3 offset-xl3">
+        <div class="card photo-card">
+          <div class="card-image">
+            <%= image_tag photo.photo_url %>
+             <div class="chip grey lighten-5">
+              <%= image_tag 'escudo_tepeapulco_logo.png', alt: 'Contact Person' %>
+                Tepeapulco Admin
+              </div>
+            <!-- <span class="card-title">Card Title</span> -->
+
+            <!-- ###### Uncomment follow to enable element favs in card -->
+
+            <!-- <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">favorite_border</i></a> -->
+          </div>
+          <div class="card-content">
+            <time class="blue-grey-text text-lighten-2"><%= time_ago_in_words(photo.created_at) %></time>
+            <p><%= photo.description %></p>
           </div>
         </div>
-              
+      </div>
+  <% end %>
+</div>
 
-      <%= link_to 'Edit', edit_photo_path(photo) %>
-      <%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %>
-    <% end %>
-  </div>
-
-<%= link_to 'New Photo', new_photo_path %>
+<% if user_signed_in? %>
+ <a id="btn-new-photo" href="new_photo_path" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+<% end %>
