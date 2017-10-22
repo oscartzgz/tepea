@@ -1,9 +1,9 @@
 <div class="row">
-  <div class="col xl6 offset-xl3">
+  <div class="col s12 m8 xl6 offset-m2 offset-xl3">
     
     <div class="card photo-card">
       <div class="card-image">
-        <%= image_tag @photo.photo_url %>
+        <%= image_tag @photo.photo_url(:large) %>
           <div class="chip grey lighten-5">
             <%= image_tag 'escudo_tepeapulco_logo.png', alt: 'Contact Person' %>
             Tepeapulco Admin
