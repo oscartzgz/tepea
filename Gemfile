@@ -62,3 +62,5 @@ gem 'omniauth-facebook'
 gem 'materialize-sass'
 
 gem 'shrine'
+
+gem 'rails-i18n'
