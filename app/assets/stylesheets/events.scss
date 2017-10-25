@@ -3,6 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .card-event{
+
+  img{
+    min-height: 300px;
+  }
+
   .card-info{
     color: grey;
     padding-right: 1em;

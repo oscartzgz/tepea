@@ -10,7 +10,7 @@
       <%= @event.description %>
     </p>
 
-    <%= image_tag @event.image_url, class: 'full-width' if @event.image.present? %>
+    <%= image_tag @event.image_url(:large), class: 'full-width' if @event.image.present? %>
 
   </div>
 </div>

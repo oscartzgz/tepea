@@ -34,7 +34,7 @@
   <div class="field">
     <%= form.label :image, 'Imagen' %>
     <% if @event.image.present? %>
-      <%= image_tag event.image_url, width: '100%' %>
+      <%= image_tag event.image_url(:large), width: '100%' %>
     <% end %>
     <%= form.hidden_field :image, value: form.object.cached_image_data %>
     <%= form.file_field :image %>

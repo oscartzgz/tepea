@@ -17,6 +17,11 @@
 @import "materialize";
 @import "https://fonts.googleapis.com/icon?family=Material+Icons";
 
+
+img{
+  color: transparent;
+}
+
 #user_image{
   border-radius: 3em;
 }
