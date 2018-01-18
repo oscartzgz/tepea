@@ -71,3 +71,5 @@ gem 'mini_magick'
 gem 'aws-sdk-s3'
 
 gem 'rails-i18n'
+
+gem 'json'
