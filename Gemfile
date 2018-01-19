@@ -58,6 +58,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # For users login system
 gem 'devise'
 
+gem 'devise-i18n'
+
 gem 'omniauth-facebook'
 
 gem 'materialize-sass'
