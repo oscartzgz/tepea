@@ -7,11 +7,26 @@ h3 a:hover{
   background: #C7DFEC;
 }
 
+.card-news-link-container{
+  color: #303030;
+}
+
 .card.card-news{
+  
+  &:hover{
+    cursor: pointer;
+  }
+
   h2.card-title, h3.card-title{
     font-weight: 600;
     margin: 0 !important;
     text-transform: uppercase;
+    font-size: 1.3em;
+  }
+
+  h3.card-title{
+    height: 3.4em;
+    overflow: hidden;
   }
 
   cite{
@@ -72,8 +87,34 @@ h3 a:hover{
 
 @media only screen and (max-width: 600px){
   .card.card-news{
-    img, .news-no-image{
-      width: 90px !important;
+    h3.card-title{
+      height: 5em;
+      overflow: hidden;
+      line-height: 1.3em;
     }
   }
 }
+
+// small-and-down
+  @media screen and (max-width: 600px){
+    // styles for small screens and down
+    body{
+    }
+  }
+  // @media #{$medium-and-up} {
+  //   // styles for medium screens and larger
+  // }
+  // @media #{$medium-and-down} {
+  //   // styles for medium screens and down
+  // }
+
+  // large-and-up
+  @media only screen and (min-width: 1200px) {
+    // styles for large screens and up
+    // .card.card-news{
+    //   height: 10em;
+    // }
+  }
+  // @media #{$extra-large-and-up} {
+  //   // styles for extra large screens and up
+  // }

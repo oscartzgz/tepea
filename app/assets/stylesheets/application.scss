@@ -10,6 +10,12 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ * FOR MATERIALIZE MEDIA QUERIES
+ * Small screens are defined as having a max-width of 600px
+ * Medium screens are defined as having a max-width of 992px
+ * Large screen are defined as having a min-width of 993px
+ * Extra Large screen are defined as having a min-width of 1200px 
+ *
  *= require_tree .
  *= require_self
  */
