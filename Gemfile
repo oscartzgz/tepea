@@ -75,3 +75,7 @@ gem 'aws-sdk-s3'
 gem 'rails-i18n'
 
 gem 'json'
+
+gem 'sidekiq', '~> 5'
+
+gem 'sidekiq-scheduler', '~> 2'
