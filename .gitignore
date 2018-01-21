@@ -43,3 +43,4 @@ bower.json
 
 /public/uploadsconfig/database.yml
 config/secrets.yml
+config/database.yml
