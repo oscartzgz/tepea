@@ -41,4 +41,5 @@ bower.json
 # Ignore Byebug command history file.
 .byebug_history
 
-/public/uploads
+/public/uploadsconfig/database.yml
+config/secrets.yml
