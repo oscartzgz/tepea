@@ -1,5 +1,5 @@
 :schedule:
   scrap_worker:
-    every: 1m   # Runs once per minute
+    every: ['5h', first_in: '30s']   # Runs five per hour and first 30 seconds after started
     class: ScrapWorker
 
