@@ -26,7 +26,7 @@ class ScrapWorker
         published_at: Date.today
       )
 
-      notice.save if News.where(url: notice.url)
+      notice.save unless News.where(url: notice.url).present?
     end
     
   end
