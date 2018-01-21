@@ -4,8 +4,8 @@
     <title>Tepeapulco, Hidalgo, Mexico.</title>
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, user-scalable=no" initial-scale="1.0">
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
@@ -23,7 +23,29 @@
           <li id="mapClose"> 
             <a href="#" class="blue-grey darken-4"><i class="material-icons left">close</i>Cerrar Mapa</a>
           </li>
+
+          <% if user_signed_in? %>
+            <li>
+               <a class='dropdown-button btn' href='#' data-activates='dropdown1'><%= current_user.email %></a>
+
+                <!-- Dropdown Structure -->
+                <ul id='dropdown1' class='dropdown-content'>
+                  <li class="divider"></li>
+                  <li>
+                    <%= link_to(destroy_user_session_path, method: :delete)  do %>
+                      <i class="material-icons">exit_to_app</i>Salir
+                    <% end %>
+                  </li>
+                </ul>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to('Ingresar', new_user_session_path, class: 'btn  lime accent-4 blue-grey-text text-darken-2')  %>  
+            </li>
+          <% end %>
+
         </ul>
+
         <ul class="side-nav" id="mobile-demo">
           <li><%= link_to 'Noticias', news_index_path %></li>
           <li><%= link_to 'Fotos', photos_path %></li>
