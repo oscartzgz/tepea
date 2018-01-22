@@ -28,7 +28,7 @@
           <% if user_signed_in? %>
             <li class="account-menu">
               <a class='dropdown-button btn amber darken-2' href='#' data-activates='dropdown1'>
-                <%= current_user.image ? (image_tag current_user.image, class: "user-picture") : (image_tag "xD") %>
+                <%= current_user.image ? (image_tag current_user.image, class: "user-picture") : (image_tag 'blank_profile_small.png', class: "user-picture") %>
                 <%= current_user.name %>    
               </a>
 
@@ -56,7 +56,7 @@
               <a href="#">
                 <div class="row" style="margin: 0">
                   <div class="col" style="height: 50px">
-                    <%= image_tag current_user.image, style: 'border-radius: 25px;' %>
+                    <%= current_user.image ? (image_tag current_user.image, style: 'border-radius: 25px;') : (image_tag 'blank_profile_small.png', style: 'border-radius: 25px;') %>
                   </div>
                   <div class="col">
                     <h5 class="white-text"> <%= current_user.name %></h5>
