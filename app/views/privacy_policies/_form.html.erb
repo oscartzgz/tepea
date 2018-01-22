@@ -1,27 +1,40 @@
-<%= form_with(model: privacy_policy, local: true) do |form| %>
-  <% if privacy_policy.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(privacy_policy.errors.count, "error") %> prohibited this privacy_policy from being saved:</h2>
+<div class="row">
+  <div class="col l6 offset-l3 m8 offset-m2">
+    
+    <%= form_with(model: privacy_policy, local: true) do |form| %>
+      <% if privacy_policy.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(privacy_policy.errors.count, "error") %> prohibited this privacy_policy from being saved:</h2>
 
-      <ul>
-      <% privacy_policy.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+          <ul>
+          <% privacy_policy.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_field :content, id: :privacy_policy_content %>
-  </div>
+      <div class="row">
+        <div class="col l12">
+          
+          <div class="field">
+            <%= form.label :content, 'Contenido' %>
+            <%= form.text_area :content, id: :privacy_policy_content, class: 'tinymce'%>
+          </div>
+        </div>
+        <div class="col l2">
+          
+          <div class="field">
+            <%= form.label :version, 'Versión' %>
+            <%= form.text_field :version, id: :privacy_policy_version %>
+          </div>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= form.label :version %>
-    <%= form.text_field :version, id: :privacy_policy_version %>
-  </div>
 
-  <div class="actions">
-    <%= form.submit %>
+      <div class="actions">
+        <%= form.submit class: 'btn' %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>

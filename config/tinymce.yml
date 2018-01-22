@@ -1,0 +1,30 @@
+language:
+  - es
+menubar: false
+toolbar:
+  - undo redo | insert | bold italic backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | image | link | help
+  - styleselect | formatselect
+plugins:
+  - image
+  - link
+  - advlist
+  - autolink
+  - lists
+  - charmap
+  - print
+  - preview
+  - anchor
+  - textcolor
+  - searchreplace
+  - visualblocks
+  - code
+  - fullscreen
+  - insertdatetime
+  - media
+  - table
+  - contextmenu
+  - paste
+  - code
+  - help
+  - wordcount
+height: 400

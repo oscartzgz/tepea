@@ -1,7 +1,11 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
-  resources :privacy_policies
+  resources :privacy_policies do
+    collection do
+      get 'current'
+    end
+  end
   resources :photos, path: 'fotos'
   resources :events, path: 'eventos'
   resources :news, path: 'noticias'

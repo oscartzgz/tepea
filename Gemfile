@@ -57,7 +57,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # For users login system
 gem 'devise'
-
 gem 'devise-i18n'
 
 gem 'omniauth-facebook'
@@ -77,5 +76,7 @@ gem 'rails-i18n'
 gem 'json'
 
 gem 'sidekiq', '~> 5'
-
 gem 'sidekiq-scheduler', '~> 2'
+
+gem 'tinymce-rails'
+gem 'tinymce-rails-langs'

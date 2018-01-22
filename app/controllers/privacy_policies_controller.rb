@@ -1,6 +1,10 @@
 class PrivacyPoliciesController < ApplicationController
   before_action :set_privacy_policy, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_admin!, only: [:index, :new, :edit, :update, :destroy]
 
+  def current
+    @privacy_policy = PrivacyPolicy.last
+  end
   # GET /privacy_policies
   # GET /privacy_policies.json
   def index
@@ -62,6 +66,9 @@ class PrivacyPoliciesController < ApplicationController
   end
 
   private
+    def authenticate_admin!
+      redirect_to root_path unless user_signed_in? and current_user.admin
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_privacy_policy
       @privacy_policy = PrivacyPolicy.find(params[:id])

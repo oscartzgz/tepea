@@ -1,0 +1,7 @@
+<div class="row">
+  <div class="col l6 offset-l3">
+    <%= @privacy_policy.content.html_safe %>
+    <hr>
+    <strong><%= 'Última actualización: ' + @privacy_policy.updated_at.strftime("%d de %B de %Y") %></strong>
+  </div>
+</div>
