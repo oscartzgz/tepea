@@ -1,0 +1,49 @@
+<h2 class="center">Ingresar</h2>
+
+<div class="row">
+  <div class="col xl2 offset-xl5">
+    
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password %><br />
+        <%= f.password_field :password, autocomplete: "off" %>
+      </div>
+
+      <% if devise_mapping.rememberable? -%>
+        <div class="field">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        </div>
+      <% end -%>
+
+      <div class="actions center">
+        <%= f.submit "Iniciar Sesion", class: 'btn btn-medium' %>
+      </div>
+    <% end %>
+    
+    <div class="center">
+      <%= render "users/shared/links" %>
+    </div>
+  </div>
+
+  <div class="col l4 offset-l4 center">
+    <p class="grey-text text-darken-1">Ó tambien puedes</p>
+    <%= link_to user_facebook_omniauth_authorize_path, class: 'fb-btn' do %>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 216 216" class="_5h0m" color="#ffffff"><path fill="#ffffff" d="
+          M204.1 0H11.9C5.3 0 0 5.3 0 11.9v192.2c0 6.6 5.3 11.9 11.9
+          11.9h103.5v-83.6H87.2V99.8h28.1v-24c0-27.9 17-43.1 41.9-43.1
+          11.9 0 22.2.9 25.2 1.3v29.2h-17.3c-13.5 0-16.2 6.4-16.2
+          15.9v20.8h32.3l-4.2 32.6h-28V216h55c6.6 0 11.9-5.3
+          11.9-11.9V11.9C216 5.3 210.7 0 204.1 0z"></path>
+      </svg>
+      <%#= image_tag "https://static.xx.fbcdn.net/rsrc.php/v3/yC/r/aMltqKRlCHD.png" %>
+      Iniciar sesión con Facebook
+    <% end %>
+
+  </div>
+</div>

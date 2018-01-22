@@ -1,0 +1,24 @@
+<div class="row">
+  
+  <h2 class="center">¿Olvidaste tu contraseña?</h2>
+
+  <div class="col l4 offset-l4">
+    
+
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <%= devise_error_messages! %>
+
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Enviarme instrucciones para recuperar", class: 'btn' %>
+      </div>
+    <% end %>
+
+    <%= render "users/shared/links" %>
+  </div>
+</div>
+

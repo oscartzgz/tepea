@@ -14,7 +14,8 @@
       <div class="nav-wrapper cyan">
         <a href="<%= root_url %>" class="brand-logo center"><i><%= image_tag 'escudo_tepeapulco_logo.png', class: 'material-icons hide-on-small-only' %></i> Tepeapulco</a>
         <%# link_to :Tepea, root_url, class: 'brand-logo' %>
-        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
+
         <ul class="right hide-on-med-and-down">
           <li><%= link_to 'Noticias', news_index_path %></li>
           <li><%= link_to 'Fotos', photos_path %></li>
@@ -25,28 +26,73 @@
           </li>
 
           <% if user_signed_in? %>
-            <li>
-               <a class='dropdown-button btn' href='#' data-activates='dropdown1'><%= current_user.email %></a>
+            <li class="account-menu">
+              <a class='dropdown-button btn amber darken-2' href='#' data-activates='dropdown1'>
+                <%= current_user.image ? (image_tag current_user.image, class: "user-picture") : (image_tag "xD") %>
+                <%= current_user.name %>    
+              </a>
 
-                <!-- Dropdown Structure -->
-                <ul id='dropdown1' class='dropdown-content'>
-                  <li class="divider"></li>
-                  <li>
-                    <%= link_to(destroy_user_session_path, method: :delete)  do %>
-                      <i class="material-icons">exit_to_app</i>Salir
-                    <% end %>
-                  </li>
-                </ul>
+              <!-- Dropdown Structure -->
+              <ul id='dropdown1' class='dropdown-content'>
+                <li class="divider"></li>
+                <li>
+                  <%= link_to(destroy_user_session_path, method: :delete)  do %>
+                    <i class="material-icons">exit_to_app</i>Salir
+                  <% end %>
+                </li>
+              </ul>
             </li>
           <% else %>
             <li>
-              <%= link_to('Ingresar', new_user_session_path, class: 'btn  lime accent-4 blue-grey-text text-darken-2')  %>  
+              <%= link_to('Ingresar', new_user_session_path, class: 'btn  lime accent-4 blue-grey-text text-darken-3')  %>  
             </li>
           <% end %>
 
         </ul>
 
-        <ul class="side-nav" id="mobile-demo">
+        <ul class="side-nav" id="mobile-menu">
+          <% if user_signed_in? %>
+            <li class="blue-grey darken-2" style="padding: .7em 0 ">              
+              <a href="#">
+                <div class="row" style="margin: 0">
+                  <div class="col" style="height: 50px">
+                    <%= image_tag current_user.image, style: 'border-radius: 25px;' %>
+                  </div>
+                  <div class="col">
+                    <h5 class="white-text"> <%= current_user.name %></h5>
+                  </div>
+                </div>
+                
+              </a>
+            </li>
+          <% else %>
+            <li>
+              <div id="userInfoMobileMenu">
+                
+                <div class="fb-btn-mb">
+                  
+                  <%= link_to user_facebook_omniauth_authorize_path, class: 'fb-btn center' do %>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 216 216" color="#ffffff"><path fill="#ffffff" d="
+                        M204.1 0H11.9C5.3 0 0 5.3 0 11.9v192.2c0 6.6 5.3 11.9 11.9
+                        11.9h103.5v-83.6H87.2V99.8h28.1v-24c0-27.9 17-43.1 41.9-43.1
+                        11.9 0 22.2.9 25.2 1.3v29.2h-17.3c-13.5 0-16.2 6.4-16.2
+                        15.9v20.8h32.3l-4.2 32.6h-28V216h55c6.6 0 11.9-5.3
+                        11.9-11.9V11.9C216 5.3 210.7 0 204.1 0z"></path>
+                    </svg>
+                    <%#= image_tag "https://static.xx.fbcdn.net/rsrc.php/v3/yC/r/aMltqKRlCHD.png" %>
+                    Ingresar con Facebook
+                  <% end %>
+                </div>
+              </div>
+            </li>
+          <% end %>
+          <% if user_signed_in? %>
+            <li>
+              <%= link_to(destroy_user_session_path, method: :delete, class: 'red darken-1 white-text text-left')  do %>
+                <i class="material-icons white-text">exit_to_app</i>Salir
+              <% end %>
+            </li>
+          <% end %>
           <li><%= link_to 'Noticias', news_index_path %></li>
           <li><%= link_to 'Fotos', photos_path %></li>
           <li><a href="#">Lugares</a></li>
