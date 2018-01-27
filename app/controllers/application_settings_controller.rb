@@ -1,6 +1,6 @@
 class ApplicationSettingsController < ApplicationController
   before_action :set_application_setting, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  before_action :authenticate_admin!
 
   # GET /application_settings
   # GET /application_settings.json
