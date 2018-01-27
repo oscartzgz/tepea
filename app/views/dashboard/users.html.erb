@@ -17,7 +17,7 @@
           <tr>
             <td>
               <% if user.image.present? %>
-                <%= image_tag user.image.url %>
+                <%= image_tag user.image %>
               <% else %>
                 <%= image_tag 'blank_profile_small.png' %>
               <% end %>
