@@ -7,4 +7,8 @@ class DashboardController < ApplicationController
   def users
     @users = User.order(created_at: 'desc')
   end
+
+  def application_settings
+    @application_settings = ApplicationSetting.all
+  end
 end

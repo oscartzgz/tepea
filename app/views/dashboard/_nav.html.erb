@@ -9,7 +9,9 @@
         Link with Left Icon
       </li>
       <li>
-        <a href="#"><i class="material-icons left">settings</i>Configuraciones</a>
+        <%= link_to dashboard_application_settings_path do%>
+          <i class="material-icons left">settings</i>Configuraciones
+        <% end %>
       </li>
       <li>
         <%= link_to sidekiq_web_path, target: '_blank' do %>

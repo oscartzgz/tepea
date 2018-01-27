@@ -1,9 +1,10 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  resources :application_settings
   get 'dashboard/index'
-
   get 'dashboard/users'
+  get 'dashboard/application_settings'
 
   resources :privacy_policies do
     collection do

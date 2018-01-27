@@ -5,4 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.create!({name: "administrator", email: "admin@admin", password: "123456789", password_confirmation: "123456789", admin: true })
+User.where(admin: "true").first_or_create do |admin|
+  admin.name = "administrator"
+  admin.email = "admin@admin"
+  admin.password = "123456789"
+  admin.password_confirmation = "123456789"
+  admin.admin = true
+end
+
+ApplicationSetting.where(setting: 'GOOGLE_ANALYTICS_ID').first_or_create do |setting|
+  setting.setting = 'GOOGLE_ANALYTICS_ID'
+end
