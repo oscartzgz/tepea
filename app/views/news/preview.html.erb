@@ -1,0 +1,104 @@
+<div class="row valign-wrapper">
+   <div class="col s12">
+    <h2>Eventos <%= link_to '<i class="medium material-icons">fiber_new</i>'.html_safe, new_event_path if user_signed_in? and current_user.admin%></h2>
+  </div>
+</div>
+
+
+<section>
+  <div class="row">
+    <% @events.each do |event| %>
+      <div class="col s12 m6 l3">
+        <div class="card small card-event">
+          <div class="card-image grey lighten-3">
+            <a href="<%= event_path(event) %>">
+              <%= image_tag (event.image_url(:small) || 'tepeapulco-piramide.jpg') %>
+            </a>
+            <a href="<%= event_path(event) %>">
+              <span class="card-title"><%= event.title %></span>
+            </a>
+          </div>
+          <div class="card-content">
+
+            <div class="card-info">
+              <span>
+                <% if event.date == Date.today %>
+                  <%= 'HOY' %>
+                <% else  %>
+                  <% if (event.date - Date.today).to_i == 1  %>
+                    <%= 'FALTA 1 DÍA' %>  
+                  <% else %>
+                    <%= 'FALTAN ' + (event.date - Date.today).to_i.to_s + ' DÍAS'%>  
+                  <% end %>
+                <% end %>
+              </span>
+              <address><%= event.address %></address>
+            </div>
+
+            <p><%= event.description.truncate(80) %></p>
+
+          </div>
+          <% if user_signed_in? and current_user.admin %>
+            <div class="card-action">
+              <a href="#">This is a link</a>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+    
+    <div class="col s12 m12 l12 center">
+      <%= link_to 'Ver todos los eventos', events_path, class: 'btn btn-large' %>
+    </div>
+  </div>
+</section>
+
+
+
+<div class="row valign-wrapper">
+  <div class="col s12">
+    <h2>Noticias <%= link_to '<i class="medium material-icons">fiber_new</i>'.html_safe, new_news_path if user_signed_in? and current_user.admin%></h2>
+  </div>
+</div>
+<section>
+  <div class="row">
+    <% @news.each do |new| %>
+      <article class="news-item">
+          
+        <div class="col s12 m6 l4">
+
+          <div class="card horizontal hoverable card-news" onclick="window.open('<%= new.url %>', '_blank');">
+            <div class="card-image grey lighten-2">
+              <% unless new.image.blank? or new.image.nil? %>
+                <%= image_tag new.image %>
+              <% else %>
+                <div class="news-no-image"><span>Sin <br>Imágen</span></div>
+              <% end %>
+            </div>
+            <div class="card-stacked">
+              <div class="card-content">
+                <h3 class="card-title">
+                  <%= new.title %>
+                </h3>
+                <!-- <p><%#= new.description.truncate(160) %></p> -->
+                <div class="row info-and-action">
+                  <div class="col s12 m12 l12">
+                    <span class="left blue-grey-text text-lighten-3">
+                      <%= new.editor %>                
+                    </span>
+                    <time class="right blue-grey-text text-lighten-3 hide-on-small-only"><%= new.published_at || new.created_at %></time>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+                  
+      </article>
+    <% end %>
+
+    <div class="col s12 m12 l12 center">
+      <%= link_to 'Ver todas las noticias', news_index_path, class: 'btn btn-large' %>
+    </div>
+  </div>
+</section>

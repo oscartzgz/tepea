@@ -18,4 +18,18 @@ module ApplicationHelper
       "Fue hace #{ (days * -1) } dias"
     end
   end
+
+  # TAGS Helpers
+  def g_analytics_tag
+    "<!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src=\"https://www.googletagmanager.com/gtag/js?id=#{Setting.google_analitycs.value}\"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', '#{Setting.google_analitycs.value}');
+    </script>"
+  end
+
 end

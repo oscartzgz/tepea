@@ -1,0 +1,21 @@
+<nav>
+  <div class="nav-wrapper grey darken-3">
+    <%= link_to 'Dashboard', dashboard_index_path, class: 'brand-logo' %>
+    <ul class="right hide-on-med-and-down">
+      <li>
+        <%= link_to dashboard_users_path do %>
+          Usuarios<i class="material-icons left">people</i>  
+        <% end %>
+        Link with Left Icon
+      </li>
+      <li>
+        <a href="#"><i class="material-icons left">settings</i>Configuraciones</a>
+      </li>
+      <li>
+        <%= link_to sidekiq_web_path, target: '_blank' do %>
+          Sidekiq<i class="material-icons right">av_timer</i>  
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</nav>

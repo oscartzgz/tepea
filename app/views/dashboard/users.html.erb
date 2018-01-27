@@ -1,0 +1,35 @@
+<%= render 'nav' %>
+<div class="container">
+  <div class="row">
+    <div class="col s12">
+      <h1>Usuarios</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Imagen</th>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Ingreso</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+          <tr>
+            <td>
+              <% if user.image.present? %>
+                <%= image_tag user.image.url %>
+              <% else %>
+                <%= image_tag 'blank_profile_small.png' %>
+              <% end %>
+            </td>
+            <td><%= user.name %></td>
+            <td><%= user.email %></td>
+            <td><%= user.created_at %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+

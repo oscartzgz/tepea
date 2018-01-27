@@ -6,7 +6,11 @@ class NewsController < ApplicationController
   # GET /news
   # GET /news.json
   def index
-    @news = News.order(published_at: :desc).limit(20)
+    @news = News.order(published_at: :desc).page(params[:page]).per(15)
+  end
+
+  def preview
+    @news = News.order(published_at: :desc).limit(12)
     @events = Event.where('date >= ?', Date.today).order(date: :asc).limit(4)
   end
 

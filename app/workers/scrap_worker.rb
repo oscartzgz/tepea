@@ -23,7 +23,8 @@ class ScrapWorker
         title: title,
         url: url,
         image: image_url,
-        published_at: Date.today
+        published_at: Date.today,
+        editor: 'El reportero'
       )
 
       notice.save unless News.where(url: notice.url).present?

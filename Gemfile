@@ -80,3 +80,5 @@ gem 'sidekiq-scheduler', '~> 2'
 
 gem 'tinymce-rails'
 gem 'tinymce-rails-langs'
+
+gem 'kaminari'

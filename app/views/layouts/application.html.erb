@@ -1,23 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
   <head>
     <title>Tepeapulco, Hidalgo, Mexico.</title>
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, user-scalable=no" initial-scale="1.0">
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <%= g_analytics_tag %>
   </head>
 
   <body>
 
     <nav>
       <div class="nav-wrapper cyan">
+
+        <% if current_user.present? and current_user.admin? %>
+          <ul class="left hide-on-med-and-down">
+            <li class="red"><%= link_to 'Dashboard', dashboard_index_path %></li>
+          </ul>
+          
+        <% end %>
+
         <a href="<%= root_url %>" class="brand-logo center"><i><%= image_tag 'escudo_tepeapulco_logo.png', class: 'material-icons hide-on-small-only' %></i> Tepeapulco</a>
         <%# link_to :Tepea, root_url, class: 'brand-logo' %>
         <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
 
         <ul class="right hide-on-med-and-down">
-          <li><%= link_to 'Noticias', news_index_path %></li>
+          <li><%= link_to 'Noticias', preview_news_index_path %></li>
           <li><%= link_to 'Fotos', photos_path %></li>
           <li><a href="#">Lugares</a></li>
           <li><a href="#">Xihuingo</a></li>
@@ -93,7 +102,7 @@
               <% end %>
             </li>
           <% end %>
-          <li><%= link_to 'Noticias', news_index_path %></li>
+          <li><%= link_to 'Noticias', preview_news_index_path %></li>
           <li><%= link_to 'Fotos', photos_path %></li>
           <li><a href="#">Lugares</a></li>
           <li><a href="#">Xihuingo</a></li>
