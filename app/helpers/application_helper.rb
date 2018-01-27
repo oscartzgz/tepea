@@ -31,9 +31,5 @@ module ApplicationHelper
       gtag('config', '#{ApplicationSetting.where(setting: 'GOOGLE_ANALYTICS_ID').take.value}');
     </script>".html_safe
   end
-
-  def authenticate_admin!
-    redirect_to root_path unless user_signed_in? and current_user.admin
-  end
-
+  
 end
