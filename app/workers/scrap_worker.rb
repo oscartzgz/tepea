@@ -19,10 +19,12 @@ class ScrapWorker
       title = post.at_css(".post-title a") ? post.css(".post-title a").text : nil
       url = post.at_css(".post-title a") ? post.css(".post-title a").attr("href") : nil
       image_url = post.at_css(".post-thumbnail img.wp-post-image") ? post.css(".post-thumbnail img.wp-post-image").attr("src") : nil
+      description = post.at_css(".entry.excerpt") ? post.css(".entry.excerpt p").text : nil
       notice = News.new(
         title: title,
         url: url,
         image: image_url,
+        description: description,
         published_at: Date.today,
         editor: 'El reportero'
       )
