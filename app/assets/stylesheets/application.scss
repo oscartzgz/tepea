@@ -24,6 +24,12 @@
 @import "https://fonts.googleapis.com/icon?family=Material+Icons";
 
 
+h1{
+  &.card-title{
+    margin-top: .2em;
+  }
+}
+
 img{
   color: transparent;
 }

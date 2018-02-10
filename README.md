@@ -7,7 +7,11 @@ Things you may want to cover:
 
 * Ruby version
 
-* System dependencies
+##System dependencies
+
+### Linux packages dependencies 
+
+  * ImageMagick
 
 * Configuration
 
@@ -19,11 +23,11 @@ Things you may want to cover:
 
 * Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## Deployment instructions
 
-## Enviroment variables
+### Enviroment variables
 
-### Nginx
+#### Nginx
 
 If you installed Nginx through the Debian or Ubuntu packages, then you can define environment variables in /etc/default/nginx. This is a shell script so you must use the export FOO=bar syntax.
 
