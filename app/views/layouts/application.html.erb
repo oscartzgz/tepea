@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <title>Tepeapulco, Hidalgo, Mexico.</title>
+    <title><%= yield :title %> - Tepeapulco, Hidalgo, Mexico.</title>
     <%= csrf_meta_tags %>
+    <%= yield :head %>
     <meta name="viewport" content="width=device-width, user-scalable=no" initial-scale="1.0">
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
@@ -10,7 +11,8 @@
   </head>
 
   <body>
-
+    <!-- FACEBOOK SDK Include -->
+    <%= facebook_sdk_tag %>
     <nav>
       <div class="nav-wrapper cyan">
 
@@ -124,4 +126,7 @@
 
     <%= yield %>
   </body>
+
+  <%= yield :footer %>
+
 </html>

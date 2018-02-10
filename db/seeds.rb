@@ -16,3 +16,7 @@ end
 ApplicationSetting.where(setting: 'GOOGLE_ANALYTICS_ID').first_or_create do |setting|
   setting.setting = 'GOOGLE_ANALYTICS_ID'
 end
+
+ApplicationSetting.where(setting: 'FACEBOOK_APP_ID').first_or_create do |setting|
+  setting.setting = 'FACEBOOK_APP_ID'
+end
