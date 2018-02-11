@@ -40,8 +40,9 @@ module ApplicationHelper
           autoLogAppEvents : true,
           xfbml            : true,
           version          : 'v2.12'
-        });
+        });        
       };
+
 
       (function(d, s, id){
          var js, fjs = d.getElementsByTagName(s)[0];
@@ -51,6 +52,19 @@ module ApplicationHelper
          fjs.parentNode.insertBefore(js, fjs);
        }(document, 'script', 'facebook-jssdk'));
       </script>".html_safe
+  end
+
+  # Yo can paste url to be shared and the size of button with two values
+  # small or large
+  def fb_share_button(link, size='small')
+
+    "<div 
+      class=\"fb-share-button\" 
+      data-href=\"#{link}\" 
+      data-layout=\"button_count\" 
+      data-size=\"#{size}\" 
+      data-mobile-iframe=\"true\">
+    </div>".html_safe
   end
   
 end

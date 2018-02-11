@@ -39,4 +39,5 @@ $(document).ready( function() {
 
   // Responsive Menu
    $(".button-collapse").sideNav();
+
 });

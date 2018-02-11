@@ -49,6 +49,13 @@ h3 a:hover{
     color: green;
   }
 
+
+  .fb-share{
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+  }
+
   .info-and-action{
     margin-bottom: 0;
     
@@ -67,7 +74,7 @@ h3 a:hover{
     height: 100%;
     position: relative;
     text-align: center;
-    filter: opacity(90%);
+    filter: opacity(95%);
     // filter: contrast(100%);
     width: 150px;
 

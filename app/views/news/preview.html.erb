@@ -81,15 +81,22 @@
                   <%= new.title %>
                 </h3>
                 <!-- <p><%#= new.description.truncate(160) %></p> -->
-                <div class="row info-and-action">
-                  <div class="col s12 m12 l12">
+                <div class="row info-and-action vertical-bottom">
+                  <div class="col s12 m12 l6">
                     <span class="left blue-grey-text text-lighten-3">
                       <%= new.editor %>                
-                    </span>
-                    <time class="right blue-grey-text text-lighten-3 hide-on-small-only"><%= new.published_at || new.created_at %></time>
+                    </span><br>
+                    <time class="left blue-grey-text text-lighten-3 hide-on-small-only"><%= new.published_at || new.created_at %></time>
+                  </div>
+                  <div class="col s12 m12 l6 right-align vertical-bottom">
+                    
                   </div>
                 </div>
               </div>
+            </div>
+            
+            <div class="fb-share">
+              <%= fb_share_button news_url(new), 'large' %>
             </div>
           </div>
         </div>
