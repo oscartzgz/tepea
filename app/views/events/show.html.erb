@@ -1,16 +1,30 @@
 <div class="row event">
   <div class="col s12 m8 l6 offset-m2 offset-l3">
-    <h1><%= @event.title %> <small class="blue-grey-text text-lighten-5"><%= @event.date.strftime('%B %d') %></small></h1>
-    <address><%= @event.address %></address>
-    <strong><%= left_days @event.date %></strong>
-    <span class="date"></span>
-    <hr>
-    <strong>Detalles:</strong>
-    <p class="description">
-      <%= @event.description %>
-    </p>
+    <div class="row">
+      <div class="col l12">
+        <h1><%= @event.title %></h1>
+      </div>
+      <div class="col l12">
+        <h4 class="blue-grey-text text-lighten-2"><%= (l @event.date, format: '%B %d').camelize %> | <small class="blue-grey-text text-lighten-4"><strong><%= left_days @event.date %></strong></small></h4>
+      </div>
 
-    <%= image_tag @event.image_url(:large), class: 'full-width' if @event.image.present? %>
+      <div class="col l8">
+        <address><%= @event.address %></address>
+        <span class="date"></span>
+      </div>
+      <div class="col l4 right-align">
+        <%= fb_share_button event_url(@event), 'large' %>
+      </div>
+
+      <div class="col l12">
+        <hr>
+        <strong>Detalles:</strong>
+        <p class="description">
+          <%= @event.description %>
+        </p>
+        <%= image_tag @event.image_url(:large), class: 'full-width' if @event.image.present? %>
+      </div>
+    </div>
 
   </div>
 </div>
