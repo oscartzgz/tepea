@@ -4,7 +4,6 @@
   </div>
 </div>
 
-
 <section>
   <div class="row">
     <% @events.each do |event| %>
@@ -86,7 +85,7 @@
                     <span class="left blue-grey-text text-lighten-3">
                       <%= new.editor %>                
                     </span><br>
-                    <time class="left blue-grey-text text-lighten-3 hide-on-small-only"><%= new.published_at || new.created_at %></time>
+                    <time class="left blue-grey-text text-lighten-3 hide-on-small-only"><%= 'Hace ' + time_ago_in_words(new.published_at) || 'Hace ' + time_ago_in_words(new.created_at) %></time>
                   </div>
                   <div class="col s12 m12 l6 right-align vertical-bottom">
                     

@@ -1,5 +1,5 @@
 class NewsController < ApplicationController
-  before_action :set_news, only: [:show, :edit, :update, :destroy]
+  before_action :set_new, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
 
   # GET /news
@@ -16,6 +16,8 @@ class NewsController < ApplicationController
   # GET /news/1
   # GET /news/1.json
   def show
+    @other_news = News.where.not(id: @new.id).order(published_at: :desc).limit(6)
+    @events = Event.where('date >= ?', Date.today).order(date: :asc).limit(4)
   end
 
   # GET /news/new
@@ -69,8 +71,8 @@ class NewsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_news
-      @news = News.find(params[:id])
+    def set_new
+      @new = News.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

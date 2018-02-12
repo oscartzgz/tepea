@@ -1,10 +1,10 @@
-<% content_for :title, @news.title %>
+<% content_for :title, @new.title %>
 <% content_for :head do %>
-  <meta property="og:url"           content="<%= news_url(@news) %>" />
+  <meta property="og:url"           content="<%= news_url(@new) %>" />
   <meta property="og:type"          content="website" />
-  <meta property="og:title"         content="<%= @news.title %>" />
-  <meta property="og:description"   content="<%= @news.description %>" />
-  <meta property="og:image"         content="<%= @news.image %>" />
+  <meta property="og:title"         content="<%= @new.title %>" />
+  <meta property="og:description"   content="<%= @new.description %>" />
+  <meta property="og:image"         content="<%= @new.image %>" />
 <% end %>
 
 <div class="container">
@@ -13,21 +13,21 @@
       <div class="col s12 m10 l8 offset-m1 offset-l2">
         <div class="card">
           <div class="card-image">
-            <img src="<%= @news.image %>">
+            <img src="<%= @new.image %>">
           </div>
           <div class="card-content">
-            <h1 class="card-title"><%= @news.title %></h1>
-            <p><%= @news.description %></p>
+            <h1 class="card-title"><%= @new.title %></h1>
+            <p><%= @new.description %></p>
           </div>
 
           <div class="card-action">
             <div class="row">
               <div class="col s12 m4 l6">
-                <span class="blue-grey-text text-lighten-1"><%= @news.editor %></span><br>
-                <span class="blue-grey-text text-lighten-3"><%= @news.published_at.strftime('%d-%m-%Y') %></span>
+                <span class="blue-grey-text text-lighten-1"><%= @new.editor %></span><br>
+                <span class="blue-grey-text text-lighten-3"><%= @new.published_at.strftime('%d-%m-%Y') %></span>
               </div>
               <div class="col s12 m8 l6 right-align">
-                <%= link_to @news.url,  class: 'btn btn-large blue accent-3', target: '_blank' do %>
+                <%= link_to @new.url,  class: 'btn btn-large blue accent-3', target: '_blank' do %>
                   <i class="material-icons left">open_in_new</i>
                   Ver la noticia completa
                 <% end %>
@@ -38,11 +38,111 @@
       </div>
 
       <div class="col s12 m10 l8 offset-m1 offset-l2 right-align">
-        <div class="fb-share-button" data-href="<%= news_url @news %>" data-layout="button_count" data-size="large" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2F127.0.0.1%3A3000%2Fnoticias%2F814&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+        <%= fb_share_button @new, 'large' %>
       </div>
     </div>
 
 </div>
 
-<hr>
+<!-- <hr> -->
 <h2>Mas notícias</h2>
+
+<section>
+  <div class="row">
+    <% @other_news.each do |notice| %>
+      <article class="news-item">
+          
+        <div class="col s12 m6 l4">
+
+          <div class="card horizontal hoverable card-news" onclick="window.open('<%= notice.url %>', '_blank');">
+            <div class="card-image grey lighten-2">
+              <% unless notice.image.blank? or notice.image.nil? %>
+                <%= image_tag notice.image %>
+              <% else %>
+                <div class="news-no-image"><span>Sin <br>Imágen</span></div>
+              <% end %>
+            </div>
+            <div class="card-stacked">
+              <div class="card-content">
+                <h3 class="card-title">
+                  <%= notice.title %>
+                </h3>
+                <!-- <p><%#= notice.description.truncate(160) %></p> -->
+                <div class="row info-and-action vertical-bottom">
+                  <div class="col s12 m12 l6">
+                    <span class="left blue-grey-text text-lighten-3">
+                      <%= notice.editor %>                
+                    </span><br>
+                    <time class="left blue-grey-text text-lighten-3 hide-on-small-only"><%= 'Hace ' + time_ago_in_words(notice.published_at) || 'Hace ' + time_ago_in_words(notice.created_at) %></time>
+                  </div>
+                  <div class="col s12 m12 l6 right-align vertical-bottom">
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="fb-share">
+              <%= fb_share_button news_url(notice), 'large' %>
+            </div>
+          </div>
+        </div>
+                  
+      </article>
+    <% end %>
+
+    <div class="col s12 m12 l12 center">
+      <%= link_to 'Ver todas las noticias', news_index_path, class: 'btn btn-large' %>
+    </div>
+  </div>
+</section>
+
+
+<h2>Próximos Eventos</h2>
+<section>
+  <div class="row">
+    <% @events.each do |event| %>
+      <div class="col s12 m6 l3">
+        <div class="card small card-event">
+          <div class="card-image grey lighten-3">
+            <a href="<%= event_path(event) %>">
+              <%= image_tag (event.image_url(:small) || 'tepeapulco-piramide.jpg') %>
+            </a>
+            <a href="<%= event_path(event) %>">
+              <span class="card-title"><%= event.title %></span>
+            </a>
+          </div>
+          <div class="card-content">
+
+            <div class="card-info">
+              <span>
+                <% if event.date == Date.today %>
+                  <%= 'HOY' %>
+                <% else  %>
+                  <% if (event.date - Date.today).to_i == 1  %>
+                    <%= 'FALTA 1 DÍA' %>  
+                  <% else %>
+                    <%= 'FALTAN ' + (event.date - Date.today).to_i.to_s + ' DÍAS'%>  
+                  <% end %>
+                <% end %>
+              </span>
+              <address><%= event.address %></address>
+            </div>
+
+            <p><%= event.description.truncate(80) %></p>
+
+          </div>
+          <% if user_signed_in? and current_user.admin %>
+            <div class="card-action">
+              <a href="#">This is a link</a>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+    
+    <div class="col s12 m12 l12 center">
+      <%= link_to 'Ver todos los eventos', events_path, class: 'btn btn-large' %>
+    </div>
+  </div>
+</section>

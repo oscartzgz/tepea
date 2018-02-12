@@ -11,6 +11,8 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+    @events = Event.where('date >= ?', Date.today).order(date: :asc).limit(4)
+    @news = News.order(published_at: :desc).limit(6)
   end
 
   # GET /events/new
