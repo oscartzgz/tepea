@@ -1,11 +1,16 @@
 <%= tinymce_assets %>
 
-<h1>Editando Politica de Privacidad</h1>
+<div class="row">
+  <div class="col l6 offset-l3 m8 offset-m2">
+    <h1>Editando Politica de Privacidad</h1>
 
 <%= render 'form', privacy_policy: @privacy_policy %>
 
-<%= link_to 'Show', @privacy_policy %> |
-<%= link_to 'Back', privacy_policies_path %>
+<%= link_to 'Ver', @privacy_policy %> |
+<%= link_to 'Atras', privacy_policies_path %>
 
 
 <%= tinymce %>
+
+  </div>
+</div>

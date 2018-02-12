@@ -6,6 +6,13 @@ es-MX:
         restrict_dependent_destroy:
           has_one: El registro no puede ser eliminado pues existe un %{record} dependiente
           has_many: El registro no puede ser eliminado pues existen %{record} dependientes
+    models:
+      event:
+        one: 'Evento'
+        other: 'Eventos'
+      privacy_policy:
+        one: 'Politica de privacidad'
+        other: 'Politicas de privacidad'
   date:
     abbr_day_names:
     - dom

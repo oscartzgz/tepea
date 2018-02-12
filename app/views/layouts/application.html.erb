@@ -61,6 +61,7 @@
 
         </ul>
 
+        <!-- MOBILE MENU -->
         <ul class="side-nav" id="mobile-menu">
           <% if user_signed_in? %>
             <li class="blue-grey darken-2" style="padding: .7em 0 ">              
@@ -101,6 +102,14 @@
             <li>
               <%= link_to(destroy_user_session_path, method: :delete, class: 'red darken-1 white-text text-left')  do %>
                 <i class="material-icons white-text">exit_to_app</i>Salir
+              <% end %>
+            </li>
+          <% end %>
+          <!-- Dashboard Admin -->
+          <% if current_user.present? and current_user.admin? %>
+            <li class="purple darken-3">
+              <%= link_to dashboard_index_path, class: 'white-text' do %>
+                <i class="material-icons white-text">dashboard</i>Dashboard
               <% end %>
             </li>
           <% end %>

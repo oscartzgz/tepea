@@ -1,3 +1,76 @@
 <%= render 'nav' %>
-<h1>Dashboard#index</h1>
-<p>Find me in app/views/dashboard/index.html.erb</p>
+
+<div class="container">
+  <div class="row">
+
+    <div class="col s12 m12 l12">
+
+      <div class="row">
+        <div class="col s12 m5 l4">
+          <div class="card-panel teal">
+            <h4 class="white-text">
+              <strong><%= PrivacyPolicy.count %></strong>
+              P. de privacidad
+            </h4>
+
+            <%= link_to 'Ver', privacy_policies_path, class: 'btn white black-text' %>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col s12 m12 l12">
+      <div class="row">
+        <div class="col s12 m5 l4">
+          <div class="card-panel teal">
+            <h4 class="white-text">
+              <strong><%= PrivacyPolicy.count %></strong>
+              Usuarios
+            </h4>
+
+            <%= link_to 'Ver', dashboard_users_path, class: 'btn white black-text' %>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col s12 m12 l12">
+
+      <div class="row">
+        <div class="col s12 m5 l4">
+          <div class="card-panel teal">
+            <h4 class="white-text">
+              <strong><%= PrivacyPolicy.count %></strong>
+              Configuraciones
+            </h4>
+
+            <%= link_to 'Ver', dashboard_application_settings_path, class: 'btn white black-text' %>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col s12 m12 l12">
+
+      <div class="row">
+        <div class="col s12 m5 l4">
+          <div class="card-panel teal">
+            <h4 class="white-text">
+              <strong></strong>
+              Sideqik ejecuciones <small>Ultimos 5 dias</small>
+            </h4>
+            <% Sidekiq::Stats::History.new(4).processed.each do |day| %>
+              <p class="white-text"><%= "#{day[0]}: #{day[1]}" %></p>
+            <% end %>
+
+            <%= link_to 'Ver', sidekiq_web_path, class: 'btn white black-text' %>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

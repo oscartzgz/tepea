@@ -1,13 +1,12 @@
 <%= tinymce_assets %>
 
 <div class="row">
-  <div class="col l4 offset-l4">
+  <div class="col l6 offset-l3">
     <h1>Editando Evento</h1>
 
     <%= render 'form', event: @event %>
 
-    <%= link_to 'Ver', @event %> |
-    <%= link_to 'Atras', events_path %>
+    <%= link_to 'Atras', @event %>
   </div>
 </div>
 

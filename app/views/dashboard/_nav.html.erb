@@ -3,6 +3,12 @@
     <%= link_to 'Dashboard', dashboard_index_path, class: 'brand-logo' %>
     <ul class="right hide-on-med-and-down">
       <li>
+        <%= link_to privacy_policies_path do %>
+          Politicas de Privacidad<i class="material-icons left">library_books</i>  
+        <% end %>
+        Link with Left Icon
+      </li>
+      <li>
         <%= link_to dashboard_users_path do %>
           Usuarios<i class="material-icons left">people</i>  
         <% end %>
