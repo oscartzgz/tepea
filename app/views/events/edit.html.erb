@@ -1,3 +1,5 @@
+<%= tinymce_assets %>
+
 <div class="row">
   <div class="col l4 offset-l4">
     <h1>Editando Evento</h1>
@@ -8,3 +10,5 @@
     <%= link_to 'Atras', events_path %>
   </div>
 </div>
+
+<%= tinymce language: "es", plugins: ["link lists"], toolbar: ["undo redo | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist | removeformat | image | link | formatselect "] %>

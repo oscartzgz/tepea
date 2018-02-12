@@ -19,9 +19,9 @@
       <div class="col l12">
         <hr>
         <strong>Detalles:</strong>
-        <p class="description">
-          <%= @event.description %>
-        </p>
+        <div class="description tinymce-content">
+          <%= @event.description.html_safe %>
+        </div>
         <%= image_tag @event.image_url(:large), class: 'full-width' if @event.image.present? %>
       </div>
     </div>

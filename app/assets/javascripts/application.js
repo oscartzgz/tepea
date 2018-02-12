@@ -35,8 +35,6 @@ $(document).ready( function() {
     $(self).hide("low");
   });
 
-  // Materialize Initializers
-
   // Responsive Menu
    $(".button-collapse").sideNav();
 
