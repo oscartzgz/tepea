@@ -1,3 +1,12 @@
+<% content_for :title, @event.title %>
+<% content_for :head do %>
+  <meta property="og:url"           content="<%= event_url(@event) %>" />
+  <meta property="og:type"          content="website" />
+  <meta property="og:title"         content="<%= @event.title %>" />
+  <meta property="og:description"   content="<%= strip_tags @event.description %>" />
+  <meta property="og:image"         content="<%= @event.image_url(:small) %>" />
+<% end %>
+
 <div class="row event">
   <div class="col s12 m8 l6 offset-m2 offset-l3">
     <div class="row">
