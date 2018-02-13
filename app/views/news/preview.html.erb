@@ -34,14 +34,17 @@
               <address><%= event.address %></address>
             </div>
 
-            <p><%= event.description.truncate(80) %></p>
+            <p><%= (strip_tags event.description).truncate(110) %></p>
 
           </div>
+
+
           <% if user_signed_in? and current_user.admin %>
-            <div class="card-action">
-              <a href="#">This is a link</a>
-            </div>
+            <%= link_to edit_event_path(event), class: 'card-edit-action' %>
+            <%= link_to events_path( method: :destroy ), class: 'card-edit-action' %>
           <% end %>
+
+
         </div>
       </div>
     <% end %>
