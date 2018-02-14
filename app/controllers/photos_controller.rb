@@ -29,8 +29,6 @@ class PhotosController < ApplicationController
       params[:photo].original_filename << '.png'
     end
 
-    byebug
-
     @photo = current_user.photos.build(photo_params)
 
 
