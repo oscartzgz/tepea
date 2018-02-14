@@ -1,9 +1,9 @@
 {
   "dependencies": {
-    "@rails/webpacker": "^3.2.2"
+    "@rails/webpacker": "^3.2.2",
+    "image-compressor.js": "^1.0.0"
   },
   "devDependencies": {
-    "image-compressor.js": "^1.0.0",
     "webpack-dev-server": "^2.11.1"
   }
 }
