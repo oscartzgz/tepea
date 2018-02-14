@@ -82,3 +82,5 @@ gem 'tinymce-rails'
 gem 'tinymce-rails-langs'
 
 gem 'kaminari'
+
+gem 'webpacker', '~> 3.2'

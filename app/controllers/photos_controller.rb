@@ -25,7 +25,14 @@ class PhotosController < ApplicationController
   # POST /photos
   # POST /photos.json
   def create
+    if params[:photo].try(:original_filename) == 'blob'
+      params[:photo].original_filename << '.png'
+    end
+
+    byebug
+
     @photo = current_user.photos.build(photo_params)
+
 
     respond_to do |format|
       if @photo.save

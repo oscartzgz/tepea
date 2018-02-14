@@ -10,9 +10,9 @@ class PhotoUploader < Shrine
   plugin :delete_raw # delete processed files after uploading
 
   Attacher.validate do
-    validate_max_size 4*1024*1024 # 4 MB
-    validate_extension_inclusion %w[jpg jpeg png gif]
-    validate_mime_type_inclusion %w[image/jpeg image/png image/gif]
+    validate_max_size 10*1024*1024 # 10 MB
+    # validate_extension_inclusion %w[jpg jpeg png gif]
+    validate_mime_type_inclusion %w[image/jpg image/jpeg image/png image/gif]
   end
 
   process(:store) do |io, context|

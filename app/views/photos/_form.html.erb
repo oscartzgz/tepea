@@ -1,4 +1,7 @@
-<%= form_with(model: photo, local: true) do |form| %>
+<%# local:true implica un formulario comun %>
+<%# form_with(model: photo, local: true) do |form| %>
+<%# sin el local:true se asume que se esta utilizando ajax para el formulario %>
+<%= form_with(model: photo) do |form| %>
   <% if photo.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(photo.errors.count, "error") %> prohibited this photo from being saved:</h2>
@@ -18,11 +21,16 @@
         <%= image_tag photo.photo_url, width: '100%' %>
       <% end %>
       <%= form.hidden_field :photo, value: form.object.cached_photo_data %>
-      <%= form.file_field :photo %>
+      <%= form.file_field :photo, id: :photo_photo, accept: 'image/*' %>
     <% else %>
       <%= image_tag photo.photo_url, width: '100%' %>
     <% end %>
   </div>
+  
+  <img id="preview" src="" alt="">
+
+  <img id="preview2" src="" alt="">
+
 
   <div class="field">
     <%= form.label :description, 'Descripción' %>
