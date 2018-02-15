@@ -27,10 +27,31 @@
     <% end %>
   </div>
   
-  <img id="preview" src="" alt="">
+  <div id="previewContainer">
+    <img id="preview" src="" alt="">
+    <div id="falseWall">
 
-  <img id="preview2" src="" alt="">
+      <div id="progressBarContainer" class="hide">
+        <div class="center-align">
 
+          <div class="preloader-wrapper big active">
+            <div class="spinner-layer spinner-blue-only">
+              <div class="circle-clipper left">
+                <div class="circle"></div>
+              </div><div class="gap-patch">
+                <div class="circle"></div>
+              </div><div class="circle-clipper right">
+                <div class="circle"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <span id="progressMessage" class="red-text text-darken-2"></span>
+      </div>
+    </div>
+  </div>
 
   <div class="field">
     <%= form.label :description, 'Descripción' %>
@@ -38,6 +59,7 @@
   </div>
 
   <div class="actions">
-    <%= form.submit class: 'btn' %>
+    <%# form.submit class: 'btn' %>
+    <%= link_to "Subir Foto", "#", id: 'sendPhoto', class: 'btn large' %>
   </div>
 <% end %>

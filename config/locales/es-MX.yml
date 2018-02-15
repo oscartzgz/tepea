@@ -13,6 +13,9 @@ es-MX:
       privacy_policy:
         one: 'Politica de privacidad'
         other: 'Politicas de privacidad'
+      photo:
+        one: "Foto"
+        other: "Fotos"
   date:
     abbr_day_names:
     - dom

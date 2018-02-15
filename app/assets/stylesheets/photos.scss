@@ -6,11 +6,44 @@
   max-width: 100%;
 }
 
+#previewContainer{
+  position: relative;
+}
+
 #btn-new-photo{
   position: fixed;
   margin-bottom: 1em;
   right: 1.6em;
   bottom: 1em;
+}
+
+#falseWall{
+  display: flex;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+#progressBarContainer{
+  display: flex;
+  -webkit-flex-flow: column;
+          flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, .8);
+}
+
+#progressMessage{
+  font-size: 1.5em;
 }
 
 .photos-container{

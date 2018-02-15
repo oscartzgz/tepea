@@ -13,45 +13,32 @@ import ImageCompressor from 'image-compressor.js';
 
 document.addEventListener("DOMContentLoaded", function(event) {
 
-  document.getElementById('photo_photo').addEventListener('change', (e) => {
-    const file = e.target.files[0];
-    if (!file) {
-      return;
-    }
+  var photo_selected = false;
+  var input_file = document.getElementById('photo_photo');
+  var send_button = document.getElementById('sendPhoto');
 
-    readURL(this, file);
 
-    new ImageCompressor(file, {
-      maxWidth: 1200,
-      maxHeight: 1000,
-      quality: .7,
-      success(result) {
-        var formData = new FormData();
-        var description = $('#photo_description').val();
-        formData.append('photo[description]', description);
-        formData.append('photo[photo]', result);
-        console.log(formData);
+  if(input_file){
 
-        alert('Aqui vamos!!!')
-        $.ajax({
-          type: "POST",
-          url: "/fotos",
-          data: formData,
-          processData: false,
-          contentType: false,
-          success: function(){
-            console.log('Succesfull reponse from server.');
-          },
-          error: function(e){
-            console.log(e);
-          }
-        });
-
-      }
+    send_button.addEventListener('click', (e) => {
+      e.preventDefault();
+      console.log('uploadPhoto va a ser ejecutada');
+      uploadPhoto(input_file);
     });
-  })
 
-
+    // Render preview image
+    input_file.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (!file) {
+        photo_selected = false;
+        return;
+      }
+      photo_selected = true;
+      $('#progressBarContainer').addClass('hide');
+      $('#progressMessage').text("");
+      readURL(this, file);
+    })
+  }
 });
 
 
@@ -61,4 +48,47 @@ function readURL(input, file){
     $('#preview').attr("src", e.target.result);
   }
   reader.readAsDataURL(file);
+}
+
+function uploadPhoto(e){
+  const file = e.files[0];
+  if (!file) {
+    return;
+  }
+
+  console.log('Comprimiendo imagen');
+
+  new ImageCompressor(file, {
+    maxWidth: 1200,
+    maxHeight: 1000,
+    quality: .7,
+    success(result) {
+      var formData = new FormData();
+      var description = $('#photo_description').val();
+      formData.append('photo[description]', description);
+      formData.append('photo[photo]', result, result.name);
+
+      console.log('Compresion exitosa, enviando por ajax')
+      $.ajax({
+        beforeSend: function(request){
+              $('#progressBarContainer').removeClass('hide');
+        },
+        type: "POST",
+        url: "/fotos",
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function(data){
+          $('#progressBarContainer').addClass('hide');
+          window.location = data.url.replace('.json', '')
+        },
+        error: function(e){
+          console.log(e);
+          $('#progressMessage').text("Ocurrio un error, por favor intenta de nuevo.")
+        }
+
+      });
+
+    }
+  })
 }
