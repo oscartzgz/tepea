@@ -1,3 +1,26 @@
 // Place all the styles related to the Articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.article-header{
+  .bg-image{
+    position: relative;
+    overflow: hide;
+
+    img{
+      object-fit: cover;
+      bottom: 0;
+    }
+  }
+
+  .title{
+    background: rgba(30, 30, 30, .7);
+    position: absolute;
+    bottom: 5px;
+    color: white;
+    padding: .3em .5em;
+    width: 100%;
+    margin-bottom: 0;
+  }
+}

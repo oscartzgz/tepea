@@ -11,27 +11,32 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :article_title %>
-  </div>
+  <div class="row">
+    
 
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content, id: :article_content %>
-  </div>
+    <div class="col s12">
+      <%= form.label :title, 'Titulo' %>
+      <%= form.text_field :title, id: :article_title %>
+    </div>
 
-  <div class="field">
-    <%= form.label :image %>
-    <%= form.text_area :image, id: :article_image %>
-  </div>
+    <div class="col s12">
+      <%= form.label :content, 'Contenido' %>
+      <%= form.text_area :content, id: :article_content, class: 'tinymce' %>
+    </div>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id, id: :article_user_id %>
-  </div>
+    <div class="col s12">
+      <%= form.label :image, 'Imagen principal' %>
+      <%= form.file_field :image, id: :article_image %>
+    </div>
 
-  <div class="actions">
-    <%= form.submit %>
+    <!-- <div class="col s12"> -->
+      <%# form.label :user_id %>
+      <%# form.text_field :user_id, id: :article_user_id %>
+    <!-- </div> -->
+
+    <div class="actions">
+      <%= form.submit class: 'btn' %>
+</div>
+
   </div>
 <% end %>

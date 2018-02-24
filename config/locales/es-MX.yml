@@ -7,6 +7,9 @@ es-MX:
           has_one: El registro no puede ser eliminado pues existe un %{record} dependiente
           has_many: El registro no puede ser eliminado pues existen %{record} dependientes
     models:
+      article:
+        one: 'Articulo'
+        other: 'Articulos'
       event:
         one: 'Evento'
         other: 'Eventos'
@@ -16,6 +19,9 @@ es-MX:
       photo:
         one: "Foto"
         other: "Fotos"
+      user:
+        one: 'Usuario'
+        other: 'Usuarios'
   date:
     abbr_day_names:
     - dom
