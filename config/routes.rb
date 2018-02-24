@@ -1,6 +1,9 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  get 'expressions/index'
+
+  resources :articles
   resources :application_settings
   get 'dashboard/index'
   get 'dashboard/users'
