@@ -36,6 +36,19 @@ $(document).ready( function() {
   });
 
   // Responsive Menu
-   $(".button-collapse").sideNav();
+  $(".button-collapse").sideNav();
+
+
+  var flashm = $('.flash')[0]
+  if (flashm) {
+  //   // for ( var i in flashm){
+    callout('<i class="material-icons">done</i> ' + ' ' + $(flashm).text())
+  //   // } 
+  }
 
 });
+
+
+function callout(message){
+  Materialize.toast(message, 5000)
+}

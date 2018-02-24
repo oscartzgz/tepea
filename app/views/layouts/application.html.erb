@@ -126,13 +126,13 @@
 
     <div class="flashmessage">
       <% if flash[:notice] %>
-        <div class="notice"><%= flash[:notice] %></div>
+        <div class="flash notice hide"><%= flash[:notice] %></div>
       <% elsif flash[:alert] %>
-        <div class="alert"><%= flash[:alert] %></div>
+        <div class="flash alert hide"><%= flash[:alert] %></div>
       <% elsif flash[:error] %>
-        <div class="error"><%= flash[:error] %></div>
+        <div class="flash error hide"><%= flash[:error] %></div>
       <% elsif flash[:before_login] %>
-        <div class="before_login"><%= flash[:before_login] %></div>
+        <div class="flash before_login hide"><%= flash[:before_login] %></div>
       <% end %>
     </div>
 
