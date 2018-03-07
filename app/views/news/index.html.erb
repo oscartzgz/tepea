@@ -13,10 +13,12 @@
 
           <div class="card horizontal hoverable card-news" onclick="window.open('<%= new.url %>', '_blank');">
             <div class="card-image grey lighten-2">
-              <% unless new.image.blank? or new.image.nil? %>
-                <%= image_tag new.image %>
-              <% else %>
-                <div class="news-no-image"><span>Sin <br>Imágen</span></div>
+              <%= link_to new do %>
+                <% unless new.image.blank? or new.image.nil? %>
+                  <%= image_tag new.image %>
+                <% else %>
+                  <div class="news-no-image"><span>Sin <br>Imágen</span></div>
+                <% end %>
               <% end %>
             </div>
             <div class="card-stacked">

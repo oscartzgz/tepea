@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_many :articles
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable,# :registerable,
+  devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: %i[facebook]
   # def self.find_or_create_from_auth_hash(auth_hash)
@@ -35,7 +35,7 @@ class User < ApplicationRecord
         user.image = auth.info.image # assuming the user model has an image
         # If you are using confirmable and the provider(s) you use validate emails, 
         # uncomment the line below to skip the confirmation emails.
-        # user.skip_confirmation!
+        user.skip_confirmation!
       end
     end
 

@@ -21,9 +21,10 @@ Rails.application.routes.draw do
       get 'preview'
     end
   end
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', confirmations: 'confirmations' }
   resources :users
   get 'welcome/index'
+  get 'welcome/user'
   root 'welcome#index'
 
   authenticate :user, lambda { |u| u.admin? } do
