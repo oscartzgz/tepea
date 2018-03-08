@@ -19,6 +19,10 @@ class User < ApplicationRecord
   #   user
   # end
 
+  validates :name, presence: true
+
+  before_save :validate_username
+
 
   def self.from_omniauth(auth)
 
@@ -48,4 +52,19 @@ class User < ApplicationRecord
       end
     end
   end
+
+
+  private 
+    def set_username
+      date = Date.today.strftime('%m%d')
+      time = Time.now
+      new_name = 'usuario' + time.min.to_s + time.hour.to_s + date
+      update_attributes(name: new_name)
+    end
+
+    def validate_username
+      if self.name.blank? or self.name == nil?
+        set_username
+      end
+    end
 end

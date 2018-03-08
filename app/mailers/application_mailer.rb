@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'info@tepeapul.co'
+  default from: 'admin@tepeapul.co'
   layout 'mailer'
 end

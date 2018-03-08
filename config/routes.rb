@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', confirmations: 'confirmations' }
   resources :users
   get 'welcome/index'
-  get 'welcome/user'
+  get 'welcome/success_confirmation'
   root 'welcome#index'
 
   authenticate :user, lambda { |u| u.admin? } do

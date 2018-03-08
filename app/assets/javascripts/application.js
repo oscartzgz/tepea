@@ -50,5 +50,5 @@ $(document).ready( function() {
 
 
 function callout(message){
-  Materialize.toast(message, 5000)
+  Materialize.toast(message, 8000)
 }
