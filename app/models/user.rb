@@ -22,6 +22,7 @@ class User < ApplicationRecord
   validates :name, presence: true
 
   before_save :validate_username
+  before_create :validate_username
 
 
   def self.from_omniauth(auth)
