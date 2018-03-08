@@ -27,7 +27,7 @@ class User < ApplicationRecord
 
   def self.from_omniauth(auth)
     # First validates if exists user with provider and uid
-      where(email: auth.info.email).first_or_create do |user|
+      where(email: auth.info.email).first_or_initialize.tap do |user|
         user.uid = auth.uid
         user.provider = auth.provider
         user.email = auth.info.email
