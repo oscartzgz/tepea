@@ -19,7 +19,7 @@ class User < ApplicationRecord
   #   user
   # end
 
-  validates :name, presence: true
+  validates :name, length: { maximum: 15 }
 
   before_save :validate_username
   before_create :validate_username

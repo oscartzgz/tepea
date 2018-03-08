@@ -1,0 +1,41 @@
+<div class="container myaccount-container">
+  <div class="row">
+    <div class="col s12 l6 offset-l3">
+      
+      <h1>Mi Cuenta</h1>
+      
+      <div class="row">
+        <div class="col s12 center">
+          
+          <div class="profile-picture">
+            <%= @user.image.present? ? (image_tag @user.image) : (image_tag 'blank_profile_small.png') %>
+            <br>
+            <span class="grey-text">Foto de perfil</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col s12 center">
+          <h4><%= @user.name %></h4>
+          <span class="grey-text">Nombre de Usuario</span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s12 center">
+          <h5><%= @user.email %></h5>
+          <span class="grey-text">Correo</span>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col s12 center">
+          <%= link_to 'Cambiar información', user_panel_edit_path %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -48,6 +48,11 @@
 
               <!-- Dropdown Structure -->
               <ul id='dropdown1' class='dropdown-content'>
+                <li>
+                  <%= link_to( user_panel_index_path )  do %>
+                    <i class="material-icons">settings</i>Cuenta
+                  <% end %>
+                </li>
                 <li class="divider"></li>
                 <li>
                   <%= link_to(destroy_user_session_path, method: :delete)  do %>

@@ -1,0 +1,68 @@
+<div class="container myaccount-container">
+  <div class="row">
+    <div class="col s12 l4 offset-l4">
+      
+      <h1>Mi Cuenta</h1>
+      
+      <%= form_for(@user, url: { action: :update}) do |form| %>
+
+        <div class="row">
+          <div class="col s12">
+            
+            <%= form.label :image, 'URL de foto' %>
+            <%= form.text_field :image %>
+            <!-- <div class="profile-picture"> -->
+              <%# @user.image.present? ? (image_tag @user.image) : (image_tag 'blank_profile_small.png') %>
+              <!-- <br> -->
+            <!-- </div> -->
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col s12">
+            <%= form.label :name, 'Nombre' %>
+            <%= form.text_field :name %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <%= form.label :email, 'Correo', class: 'active' %>
+            <%= form.text_field :email, class: 'validate', disabled: '' %>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="input-field col s12">
+            <%= form.label :password, 'Contraseña', class: 'active' %>
+            <%= form.password_field :password, class: 'validate' %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <%= form.label :password_confirmation, 'Confirmar Contraseña', class: 'active' %>
+            <%= form.password_field :password_confirmation, class: 'validate' %>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col s12 center">
+            <br>
+            <%= form.submit 'Actualizar Información', class: 'btn btn-primary btn-large' %>
+          </div>
+        </div>
+
+      <% end %>
+
+      <div class="row">
+        <div class="col s12 center">
+          <%= link_to 'Regresar', user_panel_index_path %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

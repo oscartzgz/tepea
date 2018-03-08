@@ -1,0 +1,16 @@
+// Place all the styles related to the user_panel controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.myaccount-container{
+  .profile-picture{
+    img{
+      height: 140px;
+      width: 140px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #333;
+    }
+  }
+}

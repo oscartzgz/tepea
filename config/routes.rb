@@ -1,6 +1,15 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+
+  get 'user_panel/index'
+
+  get 'user_panel/edit'
+
+  get 'user_panel/update', to: 'user_panel#update'
+  match 'user_panel/update', to: 'user_panel#update', via: [:patch, :put]
+
+
   get 'expressions/index'
 
   resources :articles
