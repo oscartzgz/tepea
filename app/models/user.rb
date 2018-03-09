@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-  NAME_MAX_LENGTH = 15
+  # Value + 1, Zero counts as One
+  NAME_MAX_LENGTH = 14
 
   has_many :photos, dependent: :destroy
   has_many :events, dependent: :destroy
@@ -21,7 +22,7 @@ class User < ApplicationRecord
   #   user
   # end
 
-  validates :name, length: { maximum: NAME_MAX_LENGTH }
+  validates :name, length: { maximum: (NAME_MAX_LENGTH + 1) }
 
   before_save :validate_username
   before_create :validate_username
@@ -54,7 +55,7 @@ class User < ApplicationRecord
     def validate_username
       if self.name.blank? or self.name == nil?
         generate_username
-      elsif self.name.length > NAME_MAX_LENGTH
+      elsif self.name.length > (NAME_MAX_LENGTH + 1)
         self.name = self.name[0..NAME_MAX_LENGTH]
       end
     end
