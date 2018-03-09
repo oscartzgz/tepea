@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  NAME_MAX_LENGTH = 15
+
   has_many :photos, dependent: :destroy
   has_many :events, dependent: :destroy
   has_many :articles, dependent: :destroy
@@ -19,7 +21,7 @@ class User < ApplicationRecord
   #   user
   # end
 
-  validates :name, length: { maximum: 15 }
+  validates :name, length: { maximum: NAME_MAX_LENGTH }
 
   before_save :validate_username
   before_create :validate_username
@@ -27,12 +29,12 @@ class User < ApplicationRecord
 
   def self.from_omniauth(auth)
     # First validates if exists user with provider and uid
-      where(email: auth.info.email).first_or_initialize.tap do |user|
+      where(email: auth.info.email).first_or_create do |user|
         user.uid = auth.uid
         user.provider = auth.provider
         user.email = auth.info.email
         user.password = Devise.friendly_token[0,20]
-        user.name = auth.info.name   # assuming the user model has a name
+        user.name = auth.info.name  # assuming the user model has a name
         user.image = auth.info.image # assuming the user model has an image
         # If you are using confirmable and the provider(s) you use validate emails, 
         # uncomment the line below to skip the confirmation emails.
@@ -42,7 +44,7 @@ class User < ApplicationRecord
 
 
   private 
-    def set_username
+    def generate_username
       date = Date.today.strftime('%m%d')
       time = Time.now
       new_name = 'usuario' + time.min.to_s + time.hour.to_s + date
@@ -51,7 +53,9 @@ class User < ApplicationRecord
 
     def validate_username
       if self.name.blank? or self.name == nil?
-        set_username
+        generate_username
+      elsif self.name.length > NAME_MAX_LENGTH
+        self.name = self.name[0..NAME_MAX_LENGTH]
       end
     end
 end
