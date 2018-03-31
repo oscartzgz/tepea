@@ -1,40 +1,16 @@
-<div class="row valign-wrapper">
-   <div class="col s12">
-    <h2>Eventos</h2>
-  </div>
-</div>
-
-<section>
-  <div class="row">
-    
-    <%= render 'news_card' %>
-    
-    <div class="col s12 m12 l12 center">
-      <%= link_to 'Ver todos los eventos', events_path, class: 'btn btn-large' %>
-    </div>
-  </div>
-</section>
-
-
-
-<div class="row valign-wrapper">
-  <div class="col s12">
-    <h2>Noticias</h2>
-  </div>
-</div>
-<section>
-  <div class="row">
-    <% @news.each do |new| %>
+<% @news.each do |new| %>
       <article class="news-item">
           
         <div class="col s12 m6 l4">
 
           <div class="card horizontal hoverable card-news" onclick="window.open('<%= new.url %>', '_blank');">
             <div class="card-image grey lighten-2">
-              <% unless new.image.blank? or new.image.nil? %>
-                <%= image_tag new.image %>
-              <% else %>
-                <div class="news-no-image"><span>Sin <br>Imágen</span></div>
+              <%= link_to new do %>
+                <% unless new.image.blank? or new.image.nil? %>
+                  <%= image_tag new.image %>
+                <% else %>
+                  <div class="news-no-image"><span>Sin <br>Imágen</span></div>
+                <% end %>
               <% end %>
             </div>
             <div class="card-stacked">
@@ -65,9 +41,3 @@
                   
       </article>
     <% end %>
-
-    <div class="col s12 m12 l12 center">
-      <%= link_to 'Ver todas las noticias', news_index_path, class: 'btn btn-large' %>
-    </div>
-  </div>
-</section>

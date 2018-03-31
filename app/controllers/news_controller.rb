@@ -16,6 +16,7 @@ class NewsController < ApplicationController
   # GET /news/1
   # GET /news/1.json
   def show
+    @new =  News.friendly.find(params[:id])
     @other_news = News.where.not(id: @new.id).order(published_at: :desc).limit(6)
     @events = Event.where('date >= ?', Date.today).order(date: :asc).limit(4)
   end

@@ -70,17 +70,12 @@ gem 'image_processing'
 gem 'mini_magick'
 # S3 uploads
 gem 'aws-sdk-s3'
-
 gem 'rails-i18n'
-
 gem 'json'
-
 gem 'sidekiq', '~> 5'
 gem 'sidekiq-scheduler', '~> 2'
-
 gem 'tinymce-rails'
 gem 'tinymce-rails-langs'
-
 gem 'kaminari'
-
 gem 'webpacker', '~> 3.2'
+gem 'friendly_id', '~> 5.1.0'

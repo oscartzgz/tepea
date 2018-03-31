@@ -6,49 +6,8 @@
 </div>
 <section>
   <div class="row">
-    <% @news.each do |new| %>
-      <article class="news-item">
-          
-        <div class="col s12 m6 l4">
-
-          <div class="card horizontal hoverable card-news" onclick="window.open('<%= new.url %>', '_blank');">
-            <div class="card-image grey lighten-2">
-              <%= link_to new do %>
-                <% unless new.image.blank? or new.image.nil? %>
-                  <%= image_tag new.image %>
-                <% else %>
-                  <div class="news-no-image"><span>Sin <br>Imágen</span></div>
-                <% end %>
-              <% end %>
-            </div>
-            <div class="card-stacked">
-              <div class="card-content">
-                <h3 class="card-title">
-                  <%= new.title %>
-                </h3>
-                <!-- <p><%#= new.description.truncate(160) %></p> -->
-                <div class="row info-and-action vertical-bottom">
-                  <div class="col s12 m12 l6">
-                    <span class="left blue-grey-text text-lighten-3">
-                      <%= new.editor %>                
-                    </span><br>
-                    <time class="left blue-grey-text text-lighten-3 hide-on-small-only"><%= 'Hace ' + time_ago_in_words(new.published_at) || 'Hace ' + time_ago_in_words(new.created_at) %></time>
-                  </div>
-                  <div class="col s12 m12 l6 right-align vertical-bottom">
-                    
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div class="fb-share">
-              <%= fb_share_button news_url(new), 'large' %>
-            </div>
-          </div>
-        </div>
-                  
-      </article>
-    <% end %>
+    
+    <%= render 'news_card' %>
 
   </div>
 

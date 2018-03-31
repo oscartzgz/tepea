@@ -29,7 +29,7 @@ class ScrapWorker
         editor: 'El reportero'
       )
 
-      notice.save unless News.where(url: notice.url).present?
+      notice.save! unless News.where(url: notice.url).present?
     end
     
   end
