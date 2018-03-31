@@ -16,7 +16,6 @@ class NewsController < ApplicationController
   # GET /news/1
   # GET /news/1.json
   def show
-    @new =  News.friendly.find(params[:id])
     @other_news = News.where.not(id: @new.id).order(published_at: :desc).limit(6)
     @events = Event.where('date >= ?', Date.today).order(date: :asc).limit(4)
   end
@@ -73,7 +72,7 @@ class NewsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_new
-      @new = News.find(params[:id])
+      @new = News.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
