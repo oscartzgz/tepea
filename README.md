@@ -26,7 +26,14 @@ Things you may want to cover:
 ## Deployment instructions
 
 ### Enviroment variables
+  - You need to set follow variables
+    AWS_ACCESS_KEY_ID
+    AWS_SECRET_ACCESS_KEY
+    AWS_REGION
+    AWS_BUCKET
 
+
+  * You can set envirnment variables on .env file, for docker-compose 
 #### Nginx
 
 If you installed Nginx through the Debian or Ubuntu packages, then you can define environment variables in /etc/default/nginx. This is a shell script so you must use the export FOO=bar syntax.

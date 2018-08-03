@@ -11,9 +11,14 @@
         <div class="card photo-card">
           <div class="card-image">
             <%= image_tag photo.photo_url(:large) %>
-             <div class="chip grey lighten-5">
-              <%= image_tag 'escudo_tepeapulco_logo.png', alt: 'Contact Person' %>
-                Tepeapulco Admin
+              <div class="chip grey lighten-5">
+                <% if user.image.present? %>
+                  <%= image_tag user.image %>
+                <% else %>
+                  <%= image_tag 'blank_profile_small.png' %>
+                <% end %>
+                <%#= image_tag 'escudo_tepeapulco_logo.png', alt: 'Contact Person' %>
+                <%= photo.user.name %>
               </div>
             <!-- <span class="card-title">Card Title</span> -->
 
