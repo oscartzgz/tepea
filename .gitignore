@@ -19,7 +19,7 @@ config/secrets.yml
 # dotenv
 # TODO Comment out this rule if environment variables can be committed
 .env
-
+/docker/development/.env
 ## Environment normalization:
 /.bundle
 /vendor/bundle
@@ -48,4 +48,6 @@ config/database.yml
 /public/packs-test
 /node_modules
 yarn-debug.log*
+yarn.lock
 .yarn-integrity
+

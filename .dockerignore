@@ -1,2 +1,6 @@
+/.git
 /tmp
+/vendor
+/public
 .env
+package-lock.json

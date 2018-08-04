@@ -5,15 +5,33 @@ services:
       context: ../../.
       dockerfile: ./docker/development/Dockerfile
     environment:
-      - SECRET_KEY_BASE=c2e990232c98dced9b6a81b832b5fe8b5ac3d46501c73d860962622e3d73282bfc21443a93e7fac522a9db99204e8e224a08f92825f57aa0be7b305bd0ae7bc3
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - AWS_REGION=${AWS_REGION}
+      - AWS_BUCKET=${AWS_BUCKET}
+      - SECRET_KEY_BASE=${SECRET_KEY_BASE}
+      - AUTH_APP_ID=${AUTH_APP_ID}
+      - AUTH_APP_SECRET=${AUTH_APP_SECRET}
     ports:
       - "3000:3000"
+      - "1025:1025"
+    volumes: 
+      - ../../:/usr/src/app
     depends_on:
       - db
+      - redis
   db:
     image: postgres
     restart: always
     volumes:
-      - ./tmp/db:/var/lib/postgresql/data
+      - ../../tmp/db:/var/lib/postgresql/data
     ports:
       - "5432:5432"
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+  redis:
+    image: redis
+    restart: always
+    ports:
+      - "6379:6379"

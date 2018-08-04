@@ -4,6 +4,7 @@
 
 
 .article-header{
+  margin-top: 2em;
   .bg-image{
     position: relative;
     overflow: hide;
@@ -16,11 +17,23 @@
 
   .title{
     background: rgba(30, 30, 30, .7);
-    position: absolute;
     bottom: 5px;
     color: white;
-    padding: .3em .5em;
-    width: 100%;
+    font-size: 3.5em;
     margin-bottom: 0;
+    padding: .3em .5em;
+    position: absolute;
+    width: 100%;
+  }
+}
+
+.article-content{
+  background: #F8F8F8;
+  padding: 1em 3em 1em 3em;
+
+  p{
+    font-family: 'Crimson Text', serif;
+    line-height: 1.5em;
+    font-size: 1.55em;
   }
 }

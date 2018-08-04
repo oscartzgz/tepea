@@ -14,5 +14,7 @@ module TepeapulCo
     config.active_job.queue_adapter = :sidekiq
     config.i18n.available_locales = ['es-MX', :es]
     config.i18n.default_locale = 'es-MX'
+
+    config.web_console.whitelisted_ips = '0.0.0.0/0'
   end
 end

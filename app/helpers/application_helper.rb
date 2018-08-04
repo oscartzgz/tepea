@@ -29,7 +29,7 @@ module ApplicationHelper
       gtag('js', new Date());
 
       gtag('config', '#{ApplicationSetting.where(setting: 'GOOGLE_ANALYTICS_ID').take.value}');
-    </script>".html_safe
+    </script>".html_safe if ApplicationSetting.where(setting: 'GOOGLE_ANALYTICS_ID').take.present?
   end
 
   def facebook_sdk_tag
@@ -51,7 +51,7 @@ module ApplicationHelper
          js.src = \"https://connect.facebook.net/es_LA/sdk.js\";
          fjs.parentNode.insertBefore(js, fjs);
        }(document, 'script', 'facebook-jssdk'));
-      </script>".html_safe
+      </script>".html_safe if ApplicationSetting.where(setting: 'FACEBOOK_APP_ID').take.present?
   end
 
   # Yo can paste url to be shared and the size of button with two values
