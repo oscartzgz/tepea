@@ -12,8 +12,8 @@
           <div class="card-image">
             <%= image_tag photo.photo_url(:large) %>
               <div class="chip grey lighten-5">
-                <% if user_signed_in? and current_user.image.present? %>
-                  <%= image_tag current_user.image %>
+                <% if photo.user.image.present? %>
+                  <%= image_tag photo.user.image %>
                 <% else %>
                   <%= image_tag 'blank_profile_small.png' %>
                 <% end %>

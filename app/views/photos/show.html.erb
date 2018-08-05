@@ -5,8 +5,13 @@
       <div class="card-image">
         <%= image_tag @photo.photo_url(:large) %>
           <div class="chip grey lighten-5">
-            <%= image_tag 'escudo_tepeapulco_logo.png', alt: 'Contact Person' %>
-            Tepeapulco Admin
+            <% if @photo.user.image.present? %>
+              <%= image_tag @photo.user.image %>
+            <% else %>
+              <%= image_tag 'blank_profile_small.png' %>
+            <% end %>
+            <%#= image_tag 'escudo_tepeapulco_logo.png', alt: 'Contact Person' %>
+              <%= @photo.user.name %>
           </div>
         <!-- <span class="card-title">Card Title</span> -->
         <!-- ###### Uncomment follow to enable element favs in card -->
