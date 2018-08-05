@@ -11,24 +11,25 @@
   <div class="col s12 m8 l6 offset-m2 offset-l3">
     <div class="row">
       <div class="col l12">
-        <h1><%= @event.title %></h1>
+        <h1 class="title"><%= @event.title %></h1>
       </div>
       <div class="col l12">
-        <h4 class="blue-grey-text text-lighten-2"><%= (l @event.date, format: '%B %d').camelize %> | <small class="blue-grey-text text-lighten-4"><strong><%= left_days @event.date %></strong></small></h4>
+        <h4 class="blue-grey-text text-lighten-2">
+          <i class="material-icons">date_range</i>
+          <%= (l @event.date, format: '%B %d').camelize %> | <small class="blue-grey-text text-lighten-4"><%= left_days @event.date %></small></h4>
       </div>
 
       <div class="col l8">
-        <address><%= @event.address %></address>
+        <address><i class="material-icons grey-text">location_on</i> <%= @event.address %></address>
         <span class="date"></span>
       </div>
       <div class="col l4 right-align">
         <%= fb_share_button event_url(@event), 'large' %>
       </div>
-
       <div class="col l12">
-        <hr>
-        <strong>Detalles:</strong>
         <div class="description tinymce-content">
+          <strong class="grey-text">Detalles del evento</strong>
+          <hr>
           <%= @event.description.html_safe %>
         </div>
         <%= image_tag @event.image_url(:large), class: 'full-width' if @event.image.present? %>

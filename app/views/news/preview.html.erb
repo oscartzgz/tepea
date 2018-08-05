@@ -36,13 +36,20 @@
 
             <p><%= (strip_tags event.description).truncate(110) %></p>
 
+            <% if user_signed_in? and current_user.admin %>
+              <div class="right-align">
+                  <%= link_to edit_event_path(event), class: 'card-edit-action' do %>
+                    <i class="material-icons">edit</i>
+                  <% end %>
+                  <%= link_to events_path( method: :destroy ), class: 'card-edit-action' do %>
+                    <i class="material-icons red-text">delete_forever</i>
+                  <% end %>
+                
+              </div>
+            <% end %>
+
           </div>
 
-
-          <% if user_signed_in? and current_user.admin %>
-            <%= link_to edit_event_path(event), class: 'card-edit-action' %>
-            <%= link_to events_path( method: :destroy ), class: 'card-edit-action' %>
-          <% end %>
 
 
         </div>

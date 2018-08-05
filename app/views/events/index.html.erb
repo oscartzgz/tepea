@@ -3,42 +3,6 @@
     <h1>Todos los eventos</h1>
   </div>
     <% @events.each do |event| %>
-      <div class="col s12 m6 l3">
-        <div class="card small card-event">
-          <div class="card-image">
-            <a href="<%= event_path(event) %>">
-              <%= image_tag (event.image_url(:small) || 'tepeapulco-piramide.jpg') %>
-            </a>
-            <a href="<%= event_path(event) %>">
-              <span class="card-title"><%= event.title %></span>
-            </a>
-          </div>
-          <div class="card-content">
-
-            <div class="card-info">
-              <span>
-                <% if event.date == Date.today %>
-                  <%= 'HOY' %>
-                <% else  %>
-                  <% if (event.date - Date.today).to_i == 1  %>
-                    <%= 'FALTA 1 DÍA' %>  
-                  <% else %>
-                    <%= 'FALTAN ' + (event.date - Date.today).to_i.to_s + ' DÍAS'%>  
-                  <% end %>
-                <% end %>
-              </span>
-              <address><%= event.address %></address>
-            </div>
-
-            <p><%= event.description.truncate(80) %></p>
-
-          </div>
-          <% if user_signed_in? and current_user.admin %>
-            <div class="card-action">
-              <a href="#">This is a link</a>
-            </div>
-          <% end %>
-        </div>
-      </div>
+      <%= render 'events/event_card', event: event %>
     <% end %>
   </div>
