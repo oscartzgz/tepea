@@ -6,6 +6,57 @@
 
 <section>
   <div class="row">
+    <% @events.each do |event| %>
+      <div class="col s12 m6 l3">
+        <div class="card small card-event">
+          <div class="card-image grey lighten-3">
+            <a href="<%= event_path(event) %>">
+              <%= image_tag (event.image_url(:small) || 'tepeapulco-piramide.jpg') %>
+            </a>
+            <a href="<%= event_path(event) %>">
+              <span class="card-title"><%= event.title %></span>
+            </a>
+          </div>
+          <div class="card-content">
+
+            <div class="card-info">
+              <span>
+                <% if event.date == Date.today %>
+                  <%= 'HOY' %>
+                <% else  %>
+                  <% if (event.date - Date.today).to_i == 1  %>
+                    <%= 'FALTA 1 DÍA' %>  
+                  <% else %>
+                    <%= 'FALTAN ' + (event.date - Date.today).to_i.to_s + ' DÍAS'%>  
+                  <% end %>
+                <% end %>
+              </span>
+              <address><%= event.address %></address>
+            </div>
+
+            <p><%= (strip_tags event.description).truncate(110) %></p>
+
+          </div>
+
+
+          <% if user_signed_in? and current_user.admin %>
+            <%= link_to edit_event_path(event), class: 'card-edit-action' %>
+            <%= link_to events_path( method: :destroy ), class: 'card-edit-action' %>
+          <% end %>
+
+
+        </div>
+      </div>
+    <% end %>
+    
+    <div class="col s12 m12 l12 center">
+      <%= link_to 'Ver todos los eventos', events_path, class: 'btn btn-large' %>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="row">
     
     <%= render 'news_card' %>
     

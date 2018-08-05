@@ -16,6 +16,5 @@ RUN yarn install
 
 # Adding project files
 COPY . .
-EXPOSE 3000
-EXPOSE 1025
+EXPOSE 3000 1025 1080
 CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]

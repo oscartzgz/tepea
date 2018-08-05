@@ -15,6 +15,7 @@ services:
     ports:
       - "3000:3000"
       - "1025:1025"
+      - "1080:1080"
     volumes: 
       - ../../:/usr/src/app
     depends_on:
