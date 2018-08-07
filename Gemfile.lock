@@ -114,6 +114,12 @@ GEM
       activerecord
       kaminari-core (= 1.1.1)
     kaminari-core (1.1.1)
+    keytar (1.5.3)
+      activesupport
+    likeable (0.1.2)
+      activesupport
+      keytar (>= 1.5.2)
+      redis
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -272,6 +278,7 @@ DEPENDENCIES
   jquery-rails
   json
   kaminari
+  likeable
   listen (~> 3.0.5)
   materialize-sass
   mini_magick
@@ -294,4 +301,4 @@ DEPENDENCIES
   webpacker (~> 3.2)
 
 BUNDLED WITH
-   1.16.1
+   1.16.3

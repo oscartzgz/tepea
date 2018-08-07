@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  include Likeable::UserMethods
   # Value + 1, Zero counts as One
   NAME_MAX_LENGTH = 14
 

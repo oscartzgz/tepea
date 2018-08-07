@@ -2,6 +2,10 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
 
+  # Likeable routes
+  delete  'likes/:resource_name/:resource_id' => "likes#destroy", :as => 'like'
+  post    'likes/:resource_name/:resource_id' => "likes#create"
+
   get 'user_panel/index'
 
   get 'user_panel/edit'

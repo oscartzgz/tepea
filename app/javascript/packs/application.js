@@ -59,8 +59,8 @@ function uploadPhoto(e){
   console.log('Comprimiendo imagen');
 
   new ImageCompressor(file, {
-    maxWidth: 1200,
-    maxHeight: 1000,
+    maxWidth: 1080,
+    maxHeight: 960,
     quality: .7,
     success(result) {
       var formData = new FormData();
@@ -90,5 +90,5 @@ function uploadPhoto(e){
       });
 
     }
-  })
+  });
 }

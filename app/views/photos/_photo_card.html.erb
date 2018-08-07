@@ -1,0 +1,41 @@
+<div class="photo-card-container">
+  
+  <div class="row">
+    <div class="col s12 m12 l12 xl12">
+      
+      <div class="card photo-card block-center">
+        <div class="card-image">
+          <%= image_tag photo.photo_url(:large) %>
+            <div class="chip grey lighten-5">
+              <% if photo.user.image.present? %>
+                <%= image_tag photo.user.image %>
+              <% else %>
+                <%= image_tag 'blank_profile_small.png' %>
+              <% end %>
+              <%#= image_tag 'escudo_tepeapulco_logo.png', alt: 'Contact Person' %>
+              <%= photo.user.name %>
+            </div>
+          <!-- <span class="card-title">Card Title</span> -->
+
+          <!-- ###### Uncomment follow to enable element favs in card -->
+          
+          <% if user_signed_in? %>
+            <%= link_to like_path(:resource_name => photo.class, :resource_id => photo.id), :method => :delete, remote: true, class: "photo-unlike btn-floating halfway-fab waves-effect waves-light white #{ 'hide' unless current_user.likes? photo}" do %>
+              <i class="material-icons red-text">favorite</i>
+            <% end %>
+            <%= link_to like_path(:resource_name => photo.class, :resource_id => photo.id), :method => :post, remote: true, class: "photo-like btn-floating halfway-fab waves-effect waves-light white #{'hide' if current_user.likes? photo}" do %>
+                <i class="material-icons grey-text">favorite_border</i>
+            <% end %>
+            <span class="likes-count <%= 'grey-text' if photo.likes.count < 10 %> <%= 'blue lighten-1' if photo.likes.count.between?(10, 99)   %>"><%= photo.likes.count %></span>
+          <% end %>
+
+        </div>
+        <div class="card-content">
+          <time class="blue-grey-text text-lighten-2"><%= time_ago_in_words(photo.created_at) %></time>
+          <p><%= photo.description %></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
