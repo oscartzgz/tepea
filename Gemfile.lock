@@ -131,7 +131,7 @@ GEM
     materialize-sass (0.100.2)
       sass (~> 3.3)
     method_source (0.9.0)
-    mini_magick (4.8.0)
+    mini_magick (4.9.4)
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
     minitest (5.11.3)
