@@ -145,7 +145,7 @@ GEM
     net-imap (0.2.3)
       digest
       net-protocol
-      strscan
+      strscan (= 3.0.3)
     net-pop (0.1.1)
       digest
       net-protocol
@@ -270,7 +270,6 @@ DEPENDENCIES
   selenium-webdriver
   sprockets-rails
   stimulus-rails
-  strscan (= 3.0.3)
   turbo-rails
   tzinfo-data
   web-console
