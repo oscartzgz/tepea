@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_16_183525) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_17_035955) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,6 +42,33 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_16_183525) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "municipalities", force: :cascade do |t|
+    t.bigint "state_id", null: false
+    t.string "name", null: false
+    t.decimal "latitude", precision: 10, scale: 6, default: "0.0"
+    t.decimal "longitude", precision: 10, scale: 6, default: "0.0"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["state_id"], name: "index_municipalities_on_state_id"
+  end
+
+  create_table "news", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "states", force: :cascade do |t|
+    t.string "code", null: false
+    t.string "name", null: false
+    t.decimal "latitude", precision: 10, scale: 6
+    t.decimal "longitude", precision: 10, scale: 6
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "municipalities", "states"
 end
