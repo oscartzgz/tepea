@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_17_035955) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_21_210547) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -49,6 +49,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_17_035955) do
     t.decimal "longitude", precision: 10, scale: 6, default: "0.0"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "host"
     t.index ["state_id"], name: "index_municipalities_on_state_id"
   end
 
@@ -57,6 +58,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_17_035955) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "url"
+    t.string "image_url"
+    t.bigint "municipality_id", null: false
+    t.index ["municipality_id"], name: "index_news_on_municipality_id"
   end
 
   create_table "states", force: :cascade do |t|
@@ -71,4 +76,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_17_035955) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "municipalities", "states"
+  add_foreign_key "news", "municipalities"
 end
