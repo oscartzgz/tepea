@@ -46,6 +46,7 @@ STATES.each { |state| State.where(code: state[:clave], name: state[:nombre]).fir
 Municipality.first_or_create(name: "Tepeapulco") do |municipality|
   state = State.find_by_code("HGO")
 
+  municipality.host = "tepeapul.co"
   municipality.state = state
   municipality.latitude = 19.7857024
   municipality.longitude = -98.5576381

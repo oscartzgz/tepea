@@ -1,7 +1,9 @@
 class ApplicationController < ActionController::Base
+  helper_method :municipality
 
   def municipality
-    @municipality = Municipality.find_by_name("Tepeapulco")
+    Municipality.find_by_host(request.host) ||
+      Municipality.find_by_name("Tepeapulco")
   end
   
 end

@@ -1,5 +1,8 @@
 module ApplicationHelper
   def municipality
-    Municipality.find_by_name("Tepeapulco")
+    def municipality
+      Municipality.find_by_host(request.host) ||
+        Municipality.find_by_name("Tepeapulco")
+    end
   end
 end
