@@ -19,6 +19,7 @@
 
 # Learn more: http://github.com/javan/whenever
 
-every 1.day, at: ['9:00 am', '3:00 pm', '9:00 pm'] do
+# every 1.day, at: ['9:00 am', '3:00 pm', '9:00 pm'] do
+every 5.minutes do
   runner "Scrapers::TepeapulcoElReporteroJob.perform_later"
 end
