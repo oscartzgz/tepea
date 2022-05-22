@@ -1,0 +1,13 @@
+header.header
+  .header__brand
+    h1 = municipality.name
+  .header__user
+    - unless current_user
+      = button_to "Google Login",
+                user_google_oauth2_omniauth_authorize_path,
+                class: 'btn btn--primary',
+                method: :post,
+                data: { turbo: false }
+    - else
+      = image_tag current_user.avatar_url, class: 'header__user-avatar'
+      = link_to "Salir", destroy_user_session_path
