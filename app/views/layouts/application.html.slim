@@ -10,7 +10,11 @@ html
     = javascript_include_tag "application", "data-turbo-track": "reload", defer: true
 
   body
-    header.header
-      h1 = municipality.name
+    = render 'shared/header'
+
+    - if flash.any?
+      - flash.each do |key, value|
+        section class="flash flash__#{ key }" = value.html_safe
+
     .container
       = yield

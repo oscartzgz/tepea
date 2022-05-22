@@ -10,4 +10,21 @@
   @include media(tabletAndUp) {
     margin-bottom: var(--space-xl);
   }
+
+  &__user {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+
+    a {
+      font-size: var(--font-size-s);
+    }
+  }
+
+  &__user-avatar {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    box-shadow: var(--shadow-small);
+  }
 }

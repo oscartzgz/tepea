@@ -1,0 +1,13 @@
+.link {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 200ms;
+  background-color: transparent;
+  border: none;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: var(--color-primary-rotate);
+  }
+}

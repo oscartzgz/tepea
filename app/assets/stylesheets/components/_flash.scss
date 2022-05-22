@@ -1,0 +1,9 @@
+.flash {
+  background-color: var(--color-dark-light);
+  border-radius: 20px;
+  padding: var(--space-xxs) var(--space-s);
+
+  &__alert   { color: rgb(255, 161, 161); }
+  &__notice  { color: var(--color-info); }
+  &__success { color: var(--color-success); }
+}
