@@ -1,0 +1,4 @@
+:schedule:
+  tepeapulco_el_reportero:
+    every: ['6h', first_in: '0s']
+    class: Scrapers::TepeapulcoElReporteroJob

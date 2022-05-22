@@ -81,9 +81,10 @@ gem 'capistrano', '~> 3.11'
 gem 'capistrano-rails', '~> 1.4'
 gem 'capistrano-passenger', '~> 0.2.0'
 gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.4'
+gem 'capistrano-sidekiq', group: :development
 gem 'aws-sdk-s3', require: false
 # Scarping Gems
 gem 'watir'
 gem 'webdrivers'
-# Scheduled Jobs
-gem 'whenever', require: false
+gem 'sidekiq', '~> 6.4'
+gem 'sidekiq-scheduler'
