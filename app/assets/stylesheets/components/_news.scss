@@ -1,0 +1,29 @@
+.news {
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-large);
+  margin-bottom: var(--space-xxl);
+  overflow: hidden;
+  background-color: var(--color-white);
+
+  &__body {
+    padding: var(--space-xs);
+  }
+  
+  &__title {
+    font-size: var(--font-size-xl);
+    font-weight: bold;
+    color: var(--color-text-header);
+  }
+
+  &__description {
+    font-size: var(--font-size-s);
+    color: var(--color-text-body);
+  }
+
+  &__image {
+    object-fit: cover;
+    width: 100%;
+    height: 9em;
+    border-radius: var(--border-radius), var(--border-radius), 0, 0;
+  }
+}

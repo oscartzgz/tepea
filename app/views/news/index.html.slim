@@ -1,0 +1,5 @@
+.news_container
+  h2.news_container__title Últimas noticias
+
+  - @news.each do |news|
+    = render news
