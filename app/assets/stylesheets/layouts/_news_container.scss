@@ -1,0 +1,12 @@
+.news_container {
+  &__title {
+    margin-top: var(--space-xs);
+    margin-bottom: var(--space-l);
+  }
+
+  @include media(tabletAndUp) {
+    // padding-right: var(--space-m);
+    // padding-left: var(--space-m);
+    // max-width: 60rem;
+  }
+}

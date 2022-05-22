@@ -1,0 +1,7 @@
+.news
+  a href=(news.url) target="_blank"
+    img.news__image src=(news.image_url)
+  .news__body
+    a href=(news.url) target="_blank"
+      .news__title = news.title
+    i.news__description = truncate(news.description, length: 150)
