@@ -1,6 +1,7 @@
 header.header
   .header__brand
-    h1 = municipality.name
+    = link_to root_path do
+      h1 = municipality.name
   .header__user
     - unless current_user
       = button_to "Google Login",

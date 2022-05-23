@@ -1,7 +1,16 @@
-h1 Galería
 
-.pictures-container
-  = link_to "🖼️ Subir", new_user_picture_path, class: 'btn btn--secondary'
-  - @pictures.each do |picture|
-    = render 'picture', picture: picture
+.pictures_container
+  .pictures_container__header
+    h1.title Galería
+    = link_to "🖼️ Subir",
+              new_user_picture_path,
+              class: 'btn btn--secondary',
+              data: { turbo_frame: dom_id(Picture.new) }
+
+  = turbo_frame_tag Picture.new
+
+  = turbo_frame_tag "pictures" do
+    .pictures_container__list
+      - @pictures.each do |picture|
+        = render 'picture', picture: picture
 

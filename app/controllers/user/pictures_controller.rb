@@ -10,7 +10,10 @@ class User::PicturesController < ApplicationController
     @picture.assign_attributes(picture_params)
 
     if @picture.save
-      redirect_to gallery_url
+      respond_to do |format|
+        format.html { redirect_to gallery_url }
+        format.turbo_stream
+      end
     else
       render :new, status: :unprocessable_entity, alert: 'Ocurrio un error, inenta nuevamente.'
     end

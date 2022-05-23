@@ -1,0 +1,26 @@
+.pictures_container {
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__title {
+    margin-top: var(--space-xs);
+    margin-bottom: var(--space-l);
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-l);
+    margin: var(--space-xxl) 0;
+  }
+
+
+  @include media(tabletAndUp) {
+    // padding-right: var(--space-m);
+    // padding-left: var(--space-m);
+    // max-width: 60rem;
+  }
+}
