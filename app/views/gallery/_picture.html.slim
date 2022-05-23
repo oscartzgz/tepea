@@ -1,0 +1,11 @@
+.picture_card
+  = image_tag url_for(picture.image) || '', class: 'picture_card__image'
+  .picture_card__body
+    .picture_card__user
+      span Por
+      = image_tag picture.user.avatar_url
+      = link_to picture.user.full_name, picture.user
+    .picture_card__date
+      | 12 Mar 2021
+    .picture_card__description
+      | Picture Description

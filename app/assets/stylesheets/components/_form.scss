@@ -3,6 +3,19 @@
   flex-wrap: wrap;
   gap: var(--space-xs);
 
+  &--column {
+    flex-direction: column;
+    gap: var(--space-m);
+    justify-content: center;
+    justify-items: center;
+  }
+
+  &--pictures {
+    background-color: white;
+    padding: var(--space-xl);
+    background-image: linear-gradient(to right top, var(--color-white) 70%, var(--color-secondary));
+  }
+
   &__group {
     flex: 1;
   }

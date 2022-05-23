@@ -1,10 +1,9 @@
 .container {
   width: 100%;
-  padding-right: var(--space-xs);
-  padding-left: var(--space-xs);
+  padding: var(--space-l) var(--space-xs);
   margin-left: auto;
   margin-right: auto;
-  background-color:rgb(210, 210, 210);
+  background-image: linear-gradient(to right top, rgb(224, 224, 224) 60%, rgb(139, 139, 139));
 
   @include media(tabletAndUp) {
     padding-right: var(--space-m);
