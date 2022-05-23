@@ -7,5 +7,5 @@
   h2 Fotos
 
   .gallery
-    - current_user.pictures.each do |picture|
-      = image_tag picture.image.variant(:thumb), class: 'picture'
+    - @user.pictures.each do |picture|
+      = image_tag url_for(picture.image.variant(:thumb)), class: 'picture'
