@@ -5,7 +5,5 @@
       span Por
       = image_tag picture.user.avatar_url
       = link_to picture.user.full_name, picture.user
-    .picture_card__date
-      | 12 Mar 2021
-    .picture_card__description
-      | Picture Description
+    .picture_card__date = picture.created_at.strftime("%d %B %y")
+    .picture_card__description: p = picture.description
