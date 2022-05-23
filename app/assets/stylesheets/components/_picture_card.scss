@@ -10,6 +10,19 @@
     object-fit: cover;
   }
 
+  &__user {
+    display: flex;
+    gap: var(--space-xxs);
+    font-style: italic;
+    font-weight: 400;
+
+    img {
+      width: var(--space-l);
+      height: var(--space-l);
+      border-radius: var(--space-l);
+    }
+  }
+
   &__body {
     padding: var(--space-s);
   }

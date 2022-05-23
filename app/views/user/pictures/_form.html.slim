@@ -1,8 +1,10 @@
-= form_with model: @picture, url: [:user, @picture], local: true, data: { turbo: false } do |f|
-  = f.label :image
-  = f.file_field :image
+= form_with model: @picture, url: [:user, @picture], local: true, data: { turbo: false }, class: 'form form--column' do |f|
+  div
+    = f.label :image, 'Mi Fotografía'
+    = f.file_field :image, class: 'form__input'
 
-  = f.label :description
-  = f.text_field :description
+  div
+    = f.label :description, 'Descripción'
+    = f.text_field :description, placeholder: 'La foto mas chida', class: 'form__input'
 
-  = f.submit 'Subir', class: 'btn btn--primary'
+  = f.submit '💽 Subir Fotografía', class: 'btn btn--primary'
