@@ -67,6 +67,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_23_034600) do
   create_table "pictures", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "municipality_id", null: false
+    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["municipality_id"], name: "index_pictures_on_municipality_id"
