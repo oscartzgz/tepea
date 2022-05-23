@@ -1,7 +1,7 @@
 = form_with model: @picture, url: [:user, @picture], local: true, data: { turbo: false }, class: 'form form--column form--pictures' do |f|
   div
     = f.label :image, 'Mi Fotografía'
-    = f.file_field :image, class: 'form__input', required: true
+    = f.file_field :image, class: 'form__input', required: true, accept: 'image/*'
 
   div
     = f.label :description, 'Descripción'
