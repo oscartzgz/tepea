@@ -1,0 +1,9 @@
+.menu {
+  padding: var(--space-xs) var(--space-xxs);
+
+  ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+  }
+}
