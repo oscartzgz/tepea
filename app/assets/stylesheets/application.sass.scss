@@ -15,9 +15,11 @@
 @import "components/news";
 @import "components/form";
 @import "components/picture_card";
+@import "components/user";
 
 // Layouts
 @import "layouts/header";
 @import "layouts/container";
 @import "layouts/news_container";
 @import "layouts/pictures_container";
+@import "layouts/gallery";

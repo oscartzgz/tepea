@@ -1,5 +1,11 @@
 .user
-  .user__picture 
-    = image_tag @user.avatar_url
+  = image_tag @user.avatar_url, class: 'user__picture'
   .user__name
-    = @user.full_name
+    h2 = @user.full_name
+
+  hr
+  h2 Fotos
+
+  .gallery
+    - current_user.pictures.each do |picture|
+      = image_tag picture.image.variant(:thumb), class: 'picture'
