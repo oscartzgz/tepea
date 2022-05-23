@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   devise :omniauthable, omniauth_providers: [:google_oauth2]
 
+  has_many :pictures, dependent: :destroy
+
   def self.from_google(email:, full_name:, uid:, avatar_url:)
     find_or_create_by(email: email) do |user|
       user.uid = uid,

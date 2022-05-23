@@ -1,0 +1,7 @@
+h1 Galería
+
+.pictures-container
+  = link_to "🖼️ Subir", new_user_picture_path, class: 'btn btn--secondary'
+  - @pictures.each do |picture|
+    = render 'picture', picture: picture
+

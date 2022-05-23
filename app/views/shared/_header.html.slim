@@ -9,5 +9,6 @@ header.header
                 method: :post,
                 data: { turbo: false }
     - else
-      = image_tag current_user.avatar_url, class: 'header__user-avatar'
+      = link_to current_user do
+        = image_tag current_user.avatar_url, class: 'header__user-avatar'
       = link_to "Salir", destroy_user_session_path
