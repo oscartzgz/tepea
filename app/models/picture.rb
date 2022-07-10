@@ -8,5 +8,5 @@ class Picture < ApplicationRecord
     attachable.variant :large, resize_to_limit: [1000, 1000]
   end
 
-  validates :image, presence: true, blob: { content_type: :image, size_range: 1..(5.megabytes) }
+  validates :image, presence: true, blob: { content_type: :image, size_range: 1..(10.megabytes) }
 end
