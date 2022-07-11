@@ -1,30 +1,35 @@
 class Scrapers::TepeapulcoElReporteroJob < ApplicationJob
   queue_as :default
 
-  
   def perform(*args)
-    scrap_url = 'http://elreporterohgo.com/noticias/?s=tepeapulco'
     municipality = Municipality.find_by_name("Tepeapulco")
     return unless municipality
 
+    keywords = %w[tepeapulco sahagun tlanalapa apan irolo zapata]
+
+    scrap_url = 'http://elreporterohgo.com/noticias/'
     browser = Watir::Browser.new :chrome, headless: true
     browser.goto scrap_url
     parsed_page = Nokogiri::HTML(browser.html)
-    browser.close
 
-    articles = parsed_page.css(".post-list.group .post-row article")
+    articles = parsed_page.css(".post-title a")
+    urls = articles.map{ |link| link.attributes['href'].value }
 
-    articles.each do |article|
-      title = article.css("h2.post-title a").text
-      description = article.css(".entry.excerpt p").text
-      url = article.css("h2.post-title a").attribute("href").value
-      image_url = article.css(".post-thumbnail img").attribute("src").value
+    urls.each do |url|
+      browser.goto url
+      page = Nokogiri::HTML(browser.html)
+      title = page.css('.post-inner .post-title').text
+      image_url = page.css('.post-inner .wp-block-image:first img')&.attribute('src')&.value
+      article_text = page.css('.post-inner .entry-inner').text.downcase
 
-      News.where(municipality_id: municipality.id, url: url).first_or_create do |news|
+      return unless keywords.any? { |keyword| keyword.in?(article_text) }
+
+      news = News.where(municipality_id: municipality.id, url: url).first_or_create do |news|
         news.title = title
-        news.description = description
         news.image_url = image_url
       end
     end
+
+    browser.close
   end
 end
