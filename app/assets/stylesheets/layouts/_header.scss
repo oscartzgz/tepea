@@ -1,14 +1,39 @@
 .header {
+  height: 80px;
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-s);
   justify-content: space-between;
-  margin-top: var(--space-m);
   margin-bottom: var(--space-l);
-  padding: var(--space-xs);
+  padding: 0 var(--space-xxs);
+  box-shadow: 0 1px 16px #AAA;
 
   @include media(tabletAndUp) {
     margin-bottom: var(--space-xl);
+  }
+
+  &__brand {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    a {
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      gap: .1em;
+    }
+
+    img {
+      position: absolute;
+      margin-top: var(--space-xxs);
+      top: 0;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-left: 70px;
+    }
   }
 
   &__user {
