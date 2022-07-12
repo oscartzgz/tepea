@@ -1,0 +1,5 @@
+- @municipalities.each do |municipality|
+  div
+    div = municipality.name
+    div = link_to 'Editar', edit_admin_municipality_path(municipality)
+  hr
