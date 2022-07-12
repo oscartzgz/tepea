@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_23_034600) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_11_062351) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -61,6 +61,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_23_034600) do
     t.string "url"
     t.string "image_url"
     t.bigint "municipality_id", null: false
+    t.integer "status", default: 1
     t.index ["municipality_id"], name: "index_news_on_municipality_id"
   end
 
