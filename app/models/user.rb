@@ -8,6 +8,8 @@ class User < ApplicationRecord
 
   has_many :pictures, dependent: :destroy
 
+  enum role: { user: 0, admin: 99 }
+
   def self.from_google(email:, full_name:, uid:, avatar_url:)
     find_or_create_by(email: email) do |user|
       user.uid = uid,
