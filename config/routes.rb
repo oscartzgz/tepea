@@ -12,4 +12,8 @@ Rails.application.routes.draw do
   namespace :user do
     resources :pictures, only: %i[new create]
   end
+
+  namespace :admin do
+    resources :news, only: %i[index update]
+  end
 end

@@ -1,0 +1,7 @@
+= turbo_frame_tag news
+  li
+    = news.title
+    - if news.published?
+      = button_to 'No Publicar', admin_news_path(news, news: { status: :unpublished }), method: :patch
+    - else
+      = button_to 'Publicar', admin_news_path(news, news: { status: :published }), method: :patch
