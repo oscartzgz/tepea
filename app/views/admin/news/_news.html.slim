@@ -1,6 +1,8 @@
 = turbo_frame_tag news
   li
+    = image_tag news.image_url if news.image_url
     = news.title
+
     - if news.published?
       = button_to 'No Publicar', admin_news_path(news, news: { status: :unpublished }), method: :patch
     - else

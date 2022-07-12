@@ -1,0 +1,21 @@
+doctype html
+html
+  head
+    title Admin Panel
+    meta name="viewport" content="width=device-width,initial-scale=1"
+    = csrf_meta_tags
+    = csp_meta_tag
+
+    = stylesheet_link_tag "application", "data-turbo-track": "reload"
+    = javascript_include_tag "application", "data-turbo-track": "reload", defer: true
+
+  body.admin
+    = render 'shared/admin_header'
+    / = render 'shared/admin_nav'
+
+    - if flash.any?
+      - flash.each do |key, value|
+        section class="flash flash__#{ key }" = value.html_safe
+
+    .content
+      = yield

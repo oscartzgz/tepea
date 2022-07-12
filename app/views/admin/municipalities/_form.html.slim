@@ -1,0 +1,9 @@
+= form_with model: [:admin, municipality], data: { turbo: false } do |f|
+  = f.label :name
+  = f.text_field :name
+  hr
+  = f.label :logo
+  = f.file_field :logo
+
+  hr
+  = f.submit

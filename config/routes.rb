@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    get '/', to: 'admin#index'
+    resources :municipalities, only: %i[index edit update]
     resources :news, only: %i[index update]
   end
 end

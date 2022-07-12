@@ -1,0 +1,15 @@
+header.header
+  .brand
+    .header__brand
+      = link_to root_path do
+        h1 Admin Panel
+  .menu
+    nav
+      ul
+        li = link_to 'Municipios', admin_municipalities_url
+        li = link_to 'Noticias', admin_news_index_url
+  .user
+    = link_to 'Admin', admin_url
+    = link_to current_user do
+      = image_tag current_user.avatar_url, class: 'header__user-avatar'
+    = link_to "Salir", destroy_user_session_path
