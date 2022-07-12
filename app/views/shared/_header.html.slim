@@ -1,6 +1,7 @@
 header.header
   .header__brand
     = link_to root_path do
+      = image_tag url_for(municipality.logo) if municipality.logo.present?
       h1 = municipality.name
   .header__user
     - unless current_user
