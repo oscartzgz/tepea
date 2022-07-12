@@ -5,6 +5,4 @@ class News < ApplicationRecord
   enum status: { unpublished: 0, published: 1 }
 
   validates_presence_of :title
-
-  enum status: { unpublished: 0, published: 1 }
 end
