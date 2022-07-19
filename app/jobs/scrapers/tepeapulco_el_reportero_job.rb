@@ -22,7 +22,7 @@ class Scrapers::TepeapulcoElReporteroJob < ApplicationJob
       image_url = page.css('.post-inner .wp-block-image:first img')&.attribute('src')&.value
       article_text = page.css('.post-inner .entry-inner').text.downcase
 
-      return unless keywords.any? { |keyword| keyword.in?(article_text) }
+      next unless keywords.any? { |keyword| keyword.in?(article_text) }
 
       news = News.where(municipality_id: municipality.id, url: url).first_or_create do |news|
         news.title = title
