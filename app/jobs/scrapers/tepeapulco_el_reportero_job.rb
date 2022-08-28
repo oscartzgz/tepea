@@ -33,5 +33,7 @@ class Scrapers::TepeapulcoElReporteroJob < ApplicationJob
     end
 
     browser.close
+  rescue
+    Bugsnag.notify("SCRAPPER - El Reportero") if Rails.env.production?
   end
 end

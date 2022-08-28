@@ -19,5 +19,6 @@ Rails.application.routes.draw do
     get '/', to: 'admin#index'
     resources :municipalities, only: %i[index edit update]
     resources :news, only: %i[index update]
+    resources :news_sources, only: %i[index show new create edit update]
   end
 end

@@ -1,0 +1,6 @@
+= turbo_frame_tag news_source
+  li
+    span
+      = image_tag news_source.logo.representation(resize_to_limit: [100, 50]) if news_source.logo
+    span = news_source.name
+    span = link_to '📎', news_source.url, targe: '_blank'
