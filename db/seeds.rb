@@ -38,7 +38,7 @@ STATES = [
   { "clave": "TMS", "nombre": "TAMAULIPAS" },
   { "clave": "VER", "nombre": "VERACRUZ" },
   { "clave": "YUC", "nombre": "YUCATAN" },
-  { "clave": "ZAC", "nombre": "ZACATECAS" } 
+  { "clave": "ZAC", "nombre": "ZACATECAS" }
 ]
 
 STATES.each { |state| State.where(code: state[:clave], name: state[:nombre]).first_or_create }

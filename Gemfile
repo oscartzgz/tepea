@@ -93,3 +93,5 @@ gem 'omniauth'
 gem 'omniauth-rails_csrf_protection'
 gem 'omniauth-google-oauth2'
 gem 'activestorage-validator'
+
+gem "bugsnag", "~> 6.24"

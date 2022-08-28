@@ -93,6 +93,8 @@ GEM
     bindex (0.8.1)
     bootsnap (1.11.1)
       msgpack (~> 1.2)
+    bugsnag (6.24.2)
+      concurrent-ruby (~> 1.0)
     builder (3.2.4)
     capistrano (3.17.0)
       airbrussh (>= 1.0.0)
@@ -351,6 +353,7 @@ DEPENDENCIES
   aws-sdk-s3
   bcrypt_pbkdf (>= 1.0, < 2.0)
   bootsnap
+  bugsnag (~> 6.24)
   capistrano (~> 3.11)
   capistrano-passenger (~> 0.2.0)
   capistrano-rails (~> 1.4)

@@ -6,7 +6,7 @@
   background-color: var(--color-white);
 
   &__body {
-    padding: var(--space-xs);
+    padding: var(--space-s);
   }
   
   &__title {
@@ -25,5 +25,11 @@
     width: 100%;
     height: 9em;
     border-radius: var(--border-radius), var(--border-radius), 0, 0;
+  }
+
+  &__source {
+    display: flex;
+    gap: 1em;
+    align-items: center;
   }
 }

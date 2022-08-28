@@ -1,0 +1,18 @@
+= form_with model: [:admin, @news_source], data: { turbo: false } do |f|
+  - if @news_source.errors
+    ul
+      - @news_source.errors.each do |error|
+        li = error.message
+
+  = f.label :name, 'Nombre'
+  = f.text_field :name
+  = 
+
+  = f.label :url, 'Url'
+  = f.text_field :url
+
+  = f.label :logo, 'Logo'
+  = f.file_field :logo
+
+  = f.submit
+

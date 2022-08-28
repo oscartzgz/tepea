@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_12_034006) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_28_034709) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -62,7 +62,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_12_034006) do
     t.string "image_url"
     t.bigint "municipality_id", null: false
     t.integer "status", default: 1
+    t.bigint "news_source_id"
     t.index ["municipality_id"], name: "index_news_on_municipality_id"
+    t.index ["news_source_id"], name: "index_news_on_news_source_id"
+  end
+
+  create_table "news_sources", force: :cascade do |t|
+    t.string "name"
+    t.string "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "pictures", force: :cascade do |t|
@@ -99,6 +108,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_12_034006) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "municipalities", "states"
   add_foreign_key "news", "municipalities"
+  add_foreign_key "news", "news_sources"
   add_foreign_key "pictures", "municipalities"
   add_foreign_key "pictures", "users"
 end
