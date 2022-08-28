@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     resources :pictures, only: %i[new create]
   end
 
+  resources :news, only: :show
+
   namespace :admin do
     get '/', to: 'admin#index'
     resources :municipalities, only: %i[index edit update]
