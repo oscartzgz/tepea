@@ -1,6 +1,6 @@
 class News < ApplicationRecord
   belongs_to :municipality
-  belongs_to :news_source
+  belongs_to :news_source, optional: true
 
   has_one_attached :image
 
