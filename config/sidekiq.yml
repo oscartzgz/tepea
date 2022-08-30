@@ -2,3 +2,6 @@
   tepeapulco_el_reportero:
     every: ['6h', first_in: '0s']
     class: Scrapers::TepeapulcoElReporteroJob
+  tepeapulco_criterio_hidalgo:
+    every: ['6h', first_in: '10s']
+    class: Scrapers::TepeapulcoCriteriohidalgoJob

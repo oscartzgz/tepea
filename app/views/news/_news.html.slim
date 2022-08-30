@@ -7,5 +7,6 @@
     / i.news__description = truncate(news.description, length: 150)
     - if news.news_source
       div.news__source
-        = image_tag news.news_source.logo.representation(resize_to_limit: [100, 50])
-        i = news.news_source.name
+        = image_tag news.news_source.logo.representation(resize_to_limit: [100, 15])
+        | |
+        small: i = news.news_source.name
