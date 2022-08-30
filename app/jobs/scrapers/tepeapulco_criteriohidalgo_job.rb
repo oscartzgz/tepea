@@ -18,7 +18,6 @@ class Scrapers::TepeapulcoCriteriohidalgoJob < ApplicationJob
       title = article.css('.post-details .post-title').text
       image_url = 'https:' + article.css('img')&.attribute('src')&.value
       url = url_join(article.css('.post-details .more-link')&.attribute('href')&.value)
-      binding.break
 
       News.where(municipality_id: municipality.id, url: url).first_or_create do |news|
         news.title = title
