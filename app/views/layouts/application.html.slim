@@ -2,12 +2,12 @@ doctype html
 html
   head
     = render 'layouts/google_analytics'
-    = render 'layouts/meta_redirection'
     title = municipality.name
     meta name="viewport" content="width=device-width,initial-scale=1"
 
     / Facebook Open Graph data
     = render 'layouts/open_graph_facebook'
+    = render 'layouts/meta_redirection'
 
     = csrf_meta_tags
     = csp_meta_tag
