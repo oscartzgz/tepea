@@ -6,12 +6,10 @@ class NewsController < ApplicationController
   end
 
   def show
-    @og_facebook =
-      OpenStruct.new({
-        meta_title: @news.title,
-        meta_image: @news.image_url,
-        meta_description: @news.description
-      })
+    @og_facebook = OpenStruct.new({ meta_title: @news.title,
+                                    meta_image: @news.image_url,
+                                    meta_description: @news.description })
+    @meta_redirection_url = @news.url
   end
 
   private
