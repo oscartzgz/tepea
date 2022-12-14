@@ -1,5 +1,7 @@
-.news_container
+.news_container data-controller="news"
   h2.news_container__title Últimas noticias
 
-  - @news.each do |news|
-    = render news
+  = turbo_frame_tag 'news_list', src: news_index_url(format: :turbo_stream, page: params[:page]), loading: 'lazy' do
+    #news_placeholder
+      p Cargando Noticias...
+  = turbo_frame_tag 'news_pagination'

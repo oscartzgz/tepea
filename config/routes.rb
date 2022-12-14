@@ -6,14 +6,12 @@ Rails.application.routes.draw do
     # get 'users/sign_in', to: 'users/sessions#new', as: :new_user_session
     get 'users/sign_out', to: 'users/sessions#destroy', as: :destroy_user_session
   end
-  
+
   get 'gallery', to: 'gallery#index'
   resources :users, only: %i[show]
   namespace :user do
     resources :pictures, only: %i[new create]
   end
-
-  resources :news, only: :show
 
   namespace :admin do
     get '/', to: 'admin#index'
@@ -21,4 +19,7 @@ Rails.application.routes.draw do
     resources :news, only: %i[index update]
     resources :news_sources, only: %i[index show new create edit update]
   end
+
+  # For all users
+  resources :news, only: %i[index show]
 end
