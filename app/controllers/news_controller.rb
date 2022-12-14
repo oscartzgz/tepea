@@ -1,8 +1,16 @@
+# frozen_string_literal: true
+
+# News Controller class
 class NewsController < ApplicationController
   before_action :set_news, only: :show
 
   def index
-    @news = municipality.news.published.order(created_at: :desc)
+    @pagy, @news = pagy(municipality.news.published.order(created_at: :desc), items: News::PER_PAGE)
+
+    respond_to do |format|
+      format.turbo_stream
+      format.html
+    end
   end
 
   def show

@@ -1,0 +1,8 @@
+= turbo_stream.remove 'news_placeholder'
+= turbo_stream.append 'news_list' do
+  = render @news
+= turbo_stream.update 'news_pagination' do
+  - if @pagy.next
+    = link_to 'Cargar más', news_index_url(page: @pagy.next), data: { turbo_stream: true, news_target: 'nextPage' }
+  - else
+    p.text-center No hay mas noticias :)

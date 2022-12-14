@@ -19,7 +19,7 @@ gem "puma", "~> 5.0"
 gem "jsbundling-rails"
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
-gem "turbo-rails"
+gem "turbo-rails", "1.3.2"
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
@@ -95,3 +95,5 @@ gem 'omniauth-google-oauth2'
 gem 'activestorage-validator'
 
 gem "bugsnag", "~> 6.24"
+
+gem "pagy", "~> 5.10"

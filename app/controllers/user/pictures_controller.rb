@@ -1,6 +1,6 @@
 class User::PicturesController < ApplicationController
   before_action :authenticate_user!
-  
+
   def new
     @picture = current_user.pictures.build(municipality: municipality)
   end
